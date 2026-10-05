@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex main"] 1791211082.85655 "main.aux" "main.bbl" "main" 1791211084.48202 0
+["bibtex main"] 1791211960.81381 "main.aux" "main.bbl" "main" 1791211962.37479 0
   "./bibliography.bib" 1251493620 1400 4ebfe710dbe5b523c4e0d98372dc4946 ""
   "/usr/share/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1775415801 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1791211084.22292 15434 57bdeb853202cae01dde4e2f62d20ad4 "pdflatex"
+  "main.aux" 1791211962.14456 13549 be176096b4484aa32ba5c437cd8e475f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1791211082.79734 "main.idx" "main.ind" "main" 1791211084.48171 0
-  "main.idx" 1791211084.22492 20558 b48feaff5694a5eac3f92814c96da26d "pdflatex"
+["makeindex main.idx"] 1791211960.75678 "main.idx" "main.ind" "main" 1791211962.37457 0
+  "main.idx" 1791211962.14656 20558 03f901bfce69d3acf2de7f8ea20c085b "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1791211082.90948 "main.tex" "main.pdf" "main" 1791211084.48224 0
+["pdflatex"] 1791211960.87119 "main.tex" "main.pdf" "main" 1791211962.37493 0
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775415801 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm" 1775415801 4712 9ef4d7d106579d4b136e1529e1a4533c ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm" 1775415801 7040 b2bd27e2bfe6f6948cbc3239cae7444f ""
@@ -203,14 +203,14 @@
   "graphics/vdqi-title.pdf" 1242847894 20938 37d655aecf663e0276f1fa75fc018296 ""
   "graphics/ve-contents.pdf" 1242847894 19362 3f8204d2acf03af50f8d22a673801ef8 ""
   "graphics/ve-title.pdf" 1242847894 18304 167fb7a40dda103bc79dd7f597ffcd1a ""
-  "main.aux" 1791211084.22292 15434 57bdeb853202cae01dde4e2f62d20ad4 "pdflatex"
-  "main.bbl" 1791211082.89994 1341 9ecd42ef64ee2dc393d35abc195ac32b "bibtex main"
-  "main.ind" 1791211082.85395 8830 679fda0596d59d904140ae0483cb99d8 "makeindex main.idx"
-  "main.lof" 1791211084.22492 855 b16174c6bcd201a21c56ad99f3b95bd5 "pdflatex"
-  "main.lot" 1791211084.22492 1001 d43a8c5bc2155ee661f44cc0e5001ab8 "pdflatex"
-  "main.out" 1791211084.22492 7503 d2b66e498ff20c6f400e4fa0b5f87241 "pdflatex"
-  "main.tex" 1791211081.23596 71257 e3c23be758fcac042ca67f85c8c45421 ""
-  "main.toc" 1791211084.22492 4029 ea05a6cd9d0c7b3bc13b676a6dc2c8aa "pdflatex"
+  "main.aux" 1791211962.14456 13549 be176096b4484aa32ba5c437cd8e475f "pdflatex"
+  "main.bbl" 1791211960.86157 1341 9ecd42ef64ee2dc393d35abc195ac32b "bibtex main"
+  "main.ind" 1791211960.81151 8830 fd1511cfa2774edb7cc9bd159259fb7d "makeindex main.idx"
+  "main.lof" 1791211962.14656 775 e1ba5bdb1ccaec8398704a7419731e15 "pdflatex"
+  "main.lot" 1791211962.14656 921 9cff4f3f18e9d5a371710ae3ab4c12b3 "pdflatex"
+  "main.out" 1791211962.14556 5588 29bdc0061fffc64e9e62ded15fed499d "pdflatex"
+  "main.tex" 1791211957.69158 61059 5431f46122f89d26a02a85f5e8b8d343 ""
+  "main.toc" 1791211962.14656 2981 9b47845026f1bce56d7217db3cd06d4f "pdflatex"
   "tufte-book.cls" 1260497716 2113 c4934cdbc7b5bdacf3f1fe458038b8f9 ""
   "tufte-common.def" 1260497730 66821 b7511c5946078b0c502b75317c740631 ""
   (generated)

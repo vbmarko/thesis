@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.9.30)  5 OCT 2026 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.9.30)  5 OCT 2026 16:52
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -784,23 +784,23 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [4
 
-] (./main.toc [5
-
-])
+] (./main.toc)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [6] (./main.lof)
+ [5
+
+] [6
+
+] (./main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [7
-
-] [8
+ [7] [8
 
 ] (./main.lot
-Overfull \hbox (51.90948pt too wide) in paragraph at lines 9--9
- [][] [][][]\T1/pplj/m/n/10 (-20) A list of L[]T[]X font sizes as de-fined by the Tufte-L[]T[]X doc-u-ment classes.[][] 37 
+Overfull \hbox (52.15948pt too wide) in paragraph at lines 5--5
+ [][] [][][]\T1/pplj/m/n/10 (-20) A list of L[]T[]X font sizes as de-fined by the Tufte-L[]T[]X doc-u-ment classes.[][] 25 
  []
 
 )
@@ -824,250 +824,211 @@ LaTeX Warning: Marginpar on page 13 moved.
 
 ] [14
 
-]
-Overfull \hbox (0.11986pt too wide) in paragraph at lines 261--263
-\T1/pplj/b/n/10 (+14) Ideal of R \T1/pplj/m/n/10 (+14) if it is a sub-ring which is closed un-der left (right) mul-ti-pli- 
- []
-
-
-LaTeX Warning: Marginpar on page 15 moved.
-
-
-Overfull \hbox (0.16089pt too wide) in paragraph at lines 279--283
-\T1/pplj/m/n/10 (+20) an isomorphism with inverse (here we have given this map the same 
- []
-
-[15
+] [15
 
 ] [16
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17] [18]
-Overfull \hbox (31.4087pt too wide) detected at line 328
-\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 D\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 X[]\OT1/zplm/m/n/10 ] = \OML/zplm/m/it/10 nX[] \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 X[]E \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 X[]EX \OT1/zplm/m/n/10 + \OT1/pplx/m/n/10 ... \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 EX[] \OT1/zplm/m/n/10 = \OML/zplm/m/it/10 nX[] \OT1/zplm/m/n/10 + [] \OML/zplm/m/it/10 X[]EX[]\OT1/pplx/m/n/10 .
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19
-
-] [20] [21] [22
-
-]
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 438.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 279.
  (/usr/share/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-
-LaTeX Warning: Marginpar on page 23 moved.
-
-[23] [24
-
-] [25] [26
-
-]
-Overfull \hbox (15.10492pt too wide) in paragraph at lines 482--483
+Overfull \hbox (15.10492pt too wide) in paragraph at lines 289--290
 \T1/pplj/m/n/10 (-20) Hence if $\OML/zplm/m/it/10 v[] \OT1/zplm/m/n/10 = [][] \OML/zplm/m/it/10 []v[]$ \T1/pplj/m/n/10 (-20) then $[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 v[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 v[]\OT1/zplm/m/n/10 ) = [][] \OML/zplm/m/it/10 [] []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 v[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 v[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 v[]\OT1/zplm/m/n/10 ) = 
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
 \T1/pplj/m/n/10 (+20) aim may not be im-me-di-ately ap-pear-ent. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
  
  []
 
-[28]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 552.
+[18]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 359.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29
-
-]
-Overfull \hbox (28.67299pt too wide) in paragraph at lines 566--566
+Overfull \hbox (28.67299pt too wide) in paragraph at lines 373--373
 |\T1/pplj/m/it/10.95 (-20) Charactesitic Poly-no-mial, Gen-er-al-ized Be-zouts the-o-rem and Cayley-Hamiltion
  []
 
+[19
 
-Overfull \hbox (159.31546pt too wide) detected at line 584
+]
+Overfull \hbox (159.31546pt too wide) detected at line 391
 []
  []
 
-[30] [31] [32
-
-]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 625--648
+[20]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 432--455
 []$[]$ 
  []
 
 
-Overfull \hbox (0.10202pt too wide) in paragraph at lines 650--651
+Overfull \hbox (0.10202pt too wide) in paragraph at lines 457--458
 []\T1/pplj/m/n/10 (+11) The design of the front matter in Tufte's books varies slightly from 
  []
 
-[33]
-<graphics/vdqi-title.pdf, id=408, 614.295pt x 758.835pt>
+[21
+
+]
+<graphics/vdqi-title.pdf, id=311, 614.295pt x 758.835pt>
 File: graphics/vdqi-title.pdf Graphic file (type pdf)
 <use graphics/vdqi-title.pdf>
-Package pdftex.def Info: graphics/vdqi-title.pdf  used on input line 696.
+Package pdftex.def Info: graphics/vdqi-title.pdf  used on input line 503.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/ei-title.pdf, id=409, 614.295pt x 758.835pt>
+<graphics/ei-title.pdf, id=312, 614.295pt x 758.835pt>
 File: graphics/ei-title.pdf Graphic file (type pdf)
 <use graphics/ei-title.pdf>
-Package pdftex.def Info: graphics/ei-title.pdf  used on input line 698.
+Package pdftex.def Info: graphics/ei-title.pdf  used on input line 505.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/ve-title.pdf, id=410, 614.295pt x 758.835pt>
+<graphics/ve-title.pdf, id=313, 614.295pt x 758.835pt>
 File: graphics/ve-title.pdf Graphic file (type pdf)
 <use graphics/ve-title.pdf>
-Package pdftex.def Info: graphics/ve-title.pdf  used on input line 700.
+Package pdftex.def Info: graphics/ve-title.pdf  used on input line 507.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/be-title.pdf, id=411, 614.295pt x 758.835pt>
+<graphics/be-title.pdf, id=314, 614.295pt x 758.835pt>
 File: graphics/be-title.pdf Graphic file (type pdf)
 <use graphics/be-title.pdf>
-Package pdftex.def Info: graphics/be-title.pdf  used on input line 702.
+Package pdftex.def Info: graphics/be-title.pdf  used on input line 509.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/vdqi-contents.pdf, id=412, 614.295pt x 758.835pt>
+<graphics/vdqi-contents.pdf, id=315, 614.295pt x 758.835pt>
 File: graphics/vdqi-contents.pdf Graphic file (type pdf)
 <use graphics/vdqi-contents.pdf>
-Package pdftex.def Info: graphics/vdqi-contents.pdf  used on input line 708.
+Package pdftex.def Info: graphics/vdqi-contents.pdf  used on input line 515.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/ei-contents.pdf, id=413, 614.295pt x 758.835pt>
+<graphics/ei-contents.pdf, id=316, 614.295pt x 758.835pt>
 File: graphics/ei-contents.pdf Graphic file (type pdf)
 <use graphics/ei-contents.pdf>
-Package pdftex.def Info: graphics/ei-contents.pdf  used on input line 710.
+Package pdftex.def Info: graphics/ei-contents.pdf  used on input line 517.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/ve-contents.pdf, id=414, 614.295pt x 758.835pt>
+<graphics/ve-contents.pdf, id=317, 614.295pt x 758.835pt>
 File: graphics/ve-contents.pdf Graphic file (type pdf)
 <use graphics/ve-contents.pdf>
-Package pdftex.def Info: graphics/ve-contents.pdf  used on input line 712.
+Package pdftex.def Info: graphics/ve-contents.pdf  used on input line 519.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
-<graphics/be-contents.pdf, id=415, 614.295pt x 758.835pt>
+<graphics/be-contents.pdf, id=318, 614.295pt x 758.835pt>
 File: graphics/be-contents.pdf Graphic file (type pdf)
 <use graphics/be-contents.pdf>
-Package pdftex.def Info: graphics/be-contents.pdf  used on input line 714.
+Package pdftex.def Info: graphics/be-contents.pdf  used on input line 521.
 (pdftex.def)             Requested size: 216.00005pt x 266.8236pt.
- [34] [35 <./graphics/vdqi-title.pdf> <./graphics/ei-title.pdf> <./graphics/ve-title.pdf> <./graphics/be-title.pdf>] [36 <./graphics/vdqi-contents.pdf> <./graphics/ei-contents.pdf> <./graphics/ve-contents.pdf> <./graphics/be-contents.pdf>]
+ [22] [23 <./graphics/vdqi-title.pdf> <./graphics/ei-title.pdf> <./graphics/ve-title.pdf> <./graphics/be-title.pdf>] [24 <./graphics/vdqi-contents.pdf> <./graphics/ei-contents.pdf> <./graphics/ve-contents.pdf> <./graphics/be-contents.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 735.
+(Font)              scaled to size 6.80005pt on input line 542.
 
 
-LaTeX Warning: Marginpar on page 37 moved.
+LaTeX Warning: Marginpar on page 25 moved.
 
 
-Overfull \hbox (8.62149pt too wide) in paragraph at lines 788--798
+Overfull \hbox (8.62149pt too wide) in paragraph at lines 595--605
  [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37] [38]
+[25] [26]
 LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <20.74> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 807.
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 614.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 17.62912pt on input line 807.
+(Font)              scaled to size 17.62912pt on input line 614.
 
-Overfull \hbox (1.14023pt too wide) in paragraph at lines 816--817
+Overfull \hbox (1.14023pt too wide) in paragraph at lines 623--624
 \T1/pplj/m/n/10 (-20) This style pro-vides \T1/pplj/m/sc/10/50ls (-20) a\T1/pplj/m/n/10 (-20) - and \T1/pplj/m/sc/10/50ls (-20) b\T1/pplj/m/n/10 (-20) -heads (that is, [] and []), 
  []
 
 
-LaTeX Warning: Marginpar on page 39 moved.
+LaTeX Warning: Marginpar on page 27 moved.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Tufte2006}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.822 ...ught{In his later books},\cite{Tufte2006}
+l.629 ...ught{In his later books},\cite{Tufte2006}
                                                    Tufte starts each section...
 
-LaTeX Warning: Marginpar on page 39 moved.
+LaTeX Warning: Marginpar on page 27 moved.
 
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 823.
+(Font)              scaled to size 7.65005pt on input line 630.
 
-LaTeX Warning: Marginpar on page 39 moved.
+LaTeX Warning: Marginpar on page 27 moved.
 
 
-LaTeX Warning: Marginpar on page 39 moved.
+LaTeX Warning: Marginpar on page 27 moved.
 
-[39
+[27
 
 ]
 
-LaTeX Warning: Marginpar on page 40 moved.
+LaTeX Warning: Marginpar on page 28 moved.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Tufte2006}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.868 ...ite[-3\baselineskip]{Tufte2006,Tufte1990}
+l.675 ...ite[-3\baselineskip]{Tufte2006,Tufte1990}
                                                    you can provide a list of...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Tufte1990}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.868 ...ite[-3\baselineskip]{Tufte2006,Tufte1990}
+l.675 ...ite[-3\baselineskip]{Tufte2006,Tufte1990}
                                                    you can provide a list of...
 
-LaTeX Warning: Marginpar on page 40 moved.
+LaTeX Warning: Marginpar on page 28 moved.
 
-[40]
-<graphics/helix.pdf, id=567, 221.8689pt x 201.71361pt>
+[28]
+<graphics/helix.pdf, id=471, 221.8689pt x 201.71361pt>
 File: graphics/helix.pdf Graphic file (type pdf)
 <use graphics/helix.pdf>
-Package pdftex.def Info: graphics/helix.pdf  used on input line 881.
+Package pdftex.def Info: graphics/helix.pdf  used on input line 688.
 (pdftex.def)             Requested size: 144.00317pt x 130.92145pt.
 
 
-Package hyperref Warning: Suppressing empty link on input line 905.
+Package hyperref Warning: Suppressing empty link on input line 712.
 
 
-Package hyperref Warning: Suppressing empty link on input line 905.
+Package hyperref Warning: Suppressing empty link on input line 712.
 
-<graphics/sine.pdf, id=570, 505.89pt x 51.04068pt>
+<graphics/sine.pdf, id=474, 505.89pt x 51.04068pt>
 File: graphics/sine.pdf Graphic file (type pdf)
 <use graphics/sine.pdf>
-Package pdftex.def Info: graphics/sine.pdf  used on input line 908.
+Package pdftex.def Info: graphics/sine.pdf  used on input line 715.
 (pdftex.def)             Requested size: 480.0061pt x 48.42917pt.
-<graphics/hilbertcurves.pdf, id=571, 308.47346pt x 76.72565pt>
+<graphics/hilbertcurves.pdf, id=475, 308.47346pt x 76.72565pt>
 File: graphics/hilbertcurves.pdf Graphic file (type pdf)
 <use graphics/hilbertcurves.pdf>
-Package pdftex.def Info: graphics/hilbertcurves.pdf  used on input line 915.
+Package pdftex.def Info: graphics/hilbertcurves.pdf  used on input line 722.
 (pdftex.def)             Requested size: 312.0029pt x 77.6035pt.
-[41 <./graphics/helix.pdf> <./graphics/sine.pdf> <./graphics/hilbertcurves.pdf>]
+[29 <./graphics/helix.pdf> <./graphics/sine.pdf> <./graphics/hilbertcurves.pdf>]
 
-Package hyperref Warning: Suppressing empty link on input line 928.
+Package hyperref Warning: Suppressing empty link on input line 735.
 
 
-Package hyperref Warning: Suppressing empty link on input line 933.
+Package hyperref Warning: Suppressing empty link on input line 740.
 
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 937.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 744.
 (/usr/share/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-Overfull \hbox (1.72046pt too wide) in paragraph at lines 959--960
+Overfull \hbox (1.72046pt too wide) in paragraph at lines 766--767
 \T1/pplj/m/n/10 (-20) this lim-i-ta-tion, the Tufte-L[]T[]X doc-u-ment classes pro-vide a []\T1/fvm/m/n/10 \morefloats[][] 
  []
 
-[42] [43]
+[30] [31]
 
 Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 (lipsum)                'english' will be used instead.
 
 
-Overfull \hbox (0.12396pt too wide) in paragraph at lines 1031--1031
+Overfull \hbox (0.12396pt too wide) in paragraph at lines 838--838
 []\T1/pplj/m/it/9 (+1) Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur 
  []
 
 
-Overfull \hbox (0.19374pt too wide) in paragraph at lines 1031--1031
+Overfull \hbox (0.19374pt too wide) in paragraph at lines 838--838
 \T1/pplj/m/it/9 (+8) malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, 
  []
 
@@ -1075,37 +1036,37 @@ Overfull \hbox (0.19374pt too wide) in paragraph at lines 1031--1031
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Bringhurst2005}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1043 ...increased slightly.\cite{Bringhurst2005}
+l.850 ... increased slightly.\cite{Bringhurst2005}
                                                    The \doccmddef{allcaps} c...
 
-LaTeX Warning: Marginpar on page 44 moved.
+LaTeX Warning: Marginpar on page 32 moved.
 
-[44] [45] [46]
+[32] [33] [34]
 LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 1098.
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 905.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 8.50006pt on input line 1098.
- [47
+(Font)              scaled to size 8.50006pt on input line 905.
+ [35
 
 ]
 
-LaTeX Warning: Marginpar on page 48 moved.
+LaTeX Warning: Marginpar on page 36 moved.
 
-[48]
-Overfull \hbox (27.92421pt too wide) in paragraph at lines 1168--1170
+[36]
+Overfull \hbox (27.92421pt too wide) in paragraph at lines 975--977
 []\T1/fvm/m/n/9 \documentclass[symmetric,justified,marginals=raggedouter]{tufte-book}  
  []
 
-[49] [50
+[37] [38
 
 ]
 LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <12> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 1200.
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 1007.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 10.20007pt on input line 1200.
- [51] [52
+(Font)              scaled to size 10.20007pt on input line 1007.
+ [39] [40
 
-] [53] [54] [55] [56
+] [41] [42] [43] [44
 
 ] (./main.bbl
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Bringhurst2005}) has been already used, duplicate ignored
@@ -1137,31 +1098,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{cite.pkg-geome
 <to be read again> 
                    \relax 
 l.38 \bibitem[Umeki(2008)]{pkg-geometry}
-                                        ) (./main.ind [57
+                                        ) (./main.ind [45
 
-] [58
+] [46
 
-] [59]) [60] (./main.aux)
+] [47]) [48] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D2B66E498FF20C6F400E4FA0B5F87241;7503.
+(rerunfilecheck)             Checksum: 29BDC0061FFFC64E9E62DED15FED499D;5588.
  ) 
 Here is how much of TeX's memory you used:
- 19079 strings out of 469515
- 299942 string characters out of 5470807
- 859986 words of memory out of 5000000
- 46411 multiletter control sequences out of 15000+600000
- 821526 words of font info for 773 fonts, out of 8000000 for 9000
+ 19003 strings out of 469515
+ 299192 string characters out of 5470807
+ 859980 words of memory out of 5000000
+ 46402 multiletter control sequences out of 15000+600000
+ 817640 words of font info for 738 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  96i,14n,101p,1001b,751s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (60 pages, 418436 bytes).
+Output written on main.pdf (48 pages, 393032 bytes).
 PDF statistics:
- 978 PDF objects out of 1000 (max. 8388607)
- 824 compressed objects within 9 object streams
- 151 named destinations out of 1000 (max. 500000)
- 231808 words of extra memory for PDF output out of 266212 (max. 10000000)
+ 875 PDF objects out of 1000 (max. 8388607)
+ 738 compressed objects within 8 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 231752 words of extra memory for PDF output out of 266212 (max. 10000000)
 

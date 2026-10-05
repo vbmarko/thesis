@@ -251,200 +251,7 @@ This sample book discusses the design of Edward Tufte's books\cite{Tufte2001,Tuf
 \mainmatter
 
 
-
-\chapter{Syzygies and Groebner bases}
-
-We will assume that the reader is familiar with basic notions of Ring theory, nevertheless, due to its centrality in our upocming discussion we will recall here the definition of an Ideal. 
-
-
-\begin{definition}[Ideal]
-  Let $R$ be a ring a subset $I \subset R$ is a \textbf{left (right) Ideal of R} if it is a subring which is closed under left (right) multiplication by R that is $I=RI (I=IR)$. 
-  If $I$ is simultaneously a left and right ideal then it is an \textbf{Ideal of R}. Inclusion of $I$ in $R$ as an ideal is denoted by $I \triangleleft{} R$.
-  
-\end{definition}
-
-
-\marginnote{In an allussion to the notation used for normal subgroups in group theory.}
-
-Ideals are important in ring theory because the set $R/I = \{ \bar{r} := r +I; r \in R \}$ forms a ring called the \textbf{quoutient ring of R by I} with operations inherited for $R$
-i.e.: $(r+I)+(s+I) = (r+s)+(I+I) = (r+s) + I$ and $(r+I)(s+I) = rs + rI +sI + I^2 = rs + I + I +I^2 = rs + I$. 
-In this way we get from an ideal a natural ring homomorphism $\nu:R \to R/I$ defined by $\nu(r) = \bar{r}$. Clearly $\ker{\nu} = I$. A similar relation holds in the other direction:
-
-\begin{proposition}
-  Let $\varphi:A \to B$ be a homomorphism of rings then $\ker{\varphi}$ is an ideal of A and $\im{\varphi} = A/\ker{\varphi}$.
-  
-\end{proposition}
-
-\begin{proof}[Proof (of Proposition)]~\newline 
-  $ \left(B \ni 0 = \varphi(A)0 = \varphi(A)\varphi(\ker \varphi) = \varphi(A \ker \varphi)\right) \implies A \ker \varphi = \ker \varphi$.
-  Notice that $\varphi^{-1}:\im \varphi \to A/\ker \varphi$ is a function and moreover a ring homomprhism as: $\varphi^{-1}(\varphi(a)+\varphi(b)) = a + b + \ker \varphi = (a+ \ker{ \varphi}) + (b+ \ker{\varphi})  = \varphi^{-1}(\varphi(a)) + \varphi^{-1}(\varphi(b))$.
-  Moreover $\ker \varphi^{-1} = 0$ so it is an isomorphism with inverse %%$\varphi: \ker{\varhphi} \to \im \phi$ 
-  (here we have given this map the same name as the map in the hypothesis, though technially what is going on is $\varphi'(\bar{a}) = \varphi'(a + \ker \varphi) = \varphi(a) + \varphi(\ker \varphi) = \varphi(a).$).
-  
-\end{proof}
-
-
-\chapter{Basic notions of Algebraic Geometry}
-
-
-
-\pagebreak{}
-
-
-Algebraic geometry is concerned with plane curves $X$ defined by polynomial equations $X = \mathcal{Z}(f)$ and their heigher dimensonal analogoues called Varieties. We study the geometric c
-
-\section{Ideals, Radicals and the Zariski Topology }
-
-In this chapter $k$ is  a field of characteristic $0$.
-
-
-
-
-
-\section{The trouble with determining Ideal membership in non PIDs}
-
-
-
-\chapter{Some facts about commutators of bounded operators on Hilbert spaces}
-
-\subsection{Preamble}
-This report contains proofs of three proposition. 
-The proofs of $(1),(2)$ are from Terence Taos Commutators close to the identity [1],
-the proof of (3) is from Paul R. Halmos' Commutators of Operators II [2]. 
-I've  tried to reproduce the proofs faithfully while expanding on some of the routine steps passed over in the references. For context, further results and the names of those who first found these facts consult the references. 
-
-\subsection{The identity is not a commutator}
-
-Let $\mathcal{H}$ be a Hilbert space and $B(\mathcal{H})$ be the algebra of bounded operator on $\mathcal{H}$ with the operator norm.
-
-
-\begin{proposition}[1]  
-  If $D,X \in B(\mathcal{H})$ are operators s.t. $[D,X] = 1 + E$ for some operator $E$ with $||E|| = \epsilon$, then $||D||||X|| \geq 1/2 \log{1/\epsilon}$
-  
-\end{proposition}
-
-\begin{proof}
-  To simplify calculations we divide D by a constant s.t. $||D|| = 1/2$ and multipy X by the same constant by doing this we have that $||[D,X^n]|| \leq ||D||||X^n|| + ||X^n||||D|| = ||X^n||$. \\  
-  Begin by establishing the identity $$[D,X^n] = nX^{n-1} + X^{n-1}E + X^{n-2}EX + ... + EX^{n-1} = nX^{n-1} + \sum_{i=0}^{n-1}X^{n-1-i}EX^{i}.$$ The base case is clear $[D,X] = 1 + E = 1*X^{0} + X^{0}E$.
-  For the inductive step note first that for any $A,B,C$ we have $[A,BC] = B[A,C] + [A,B]C$. In particular 
-  \begin{align*}
-    [D,X^{n+1}] &= X[D,X^{n}] + [D,X]X^n \\ 
-             &= X \left( nX^{n-1}  + \sum_{i=0}^{n-1}X^{n-1-i}EX^i \right) + (1+E)X^n  \\ 
-             &= (n+1)X^n  + \left( X^nE + X^{n-1}EX + ... + XEX^{n-1} + EX^n \right)\\
-             &= (n+1)X^n + \sum_{i = 0}^{n}X^{n-i}EX^i
-  \end{align*}
-
-  Now we need to establish the inequality $$n||X^{n-1}|| \leq n \epsilon ||X||^{n-1} + ||X^n|| \quad (1).$$ To do this we use the triangle inequality to bound $\sum_{i = 0}^{n-1}X^{n-i}EX^i \leq n \epsilon ||X||^{n-1}$, and write 
-
-  \begin{align*}
-    &-n X^{n-1} = \sum_{i = 0}^{n-1}X^{n-1-i}EX^i - [D,X^] \\
-    &n||X^{n-1}|| = || \sum_{i = 0}^{n-1}X^{n-1-i}EX^i - [D,X^n]|| \leq n \epsilon ||X||^{n-1} + ||X||^n \\ 
-  \end{align*}
-
-  We divide this inequality by $n!$ and sum over $n$ to obtain: 
-
-  $$  \sum_{n = 0}^{\infty} \frac{||X^{n}||}{n!} \leq \sum_{n=1}^{\infty} \frac{||X^n||}{n!} + \epsilon \sum_{n = 0}^{\infty} \frac{||X||^n}{n!}$$
-  
-  The sum $\sum_{n=1}^{\infty} \frac{||X^n||}{n!}$ is bounded  by $\exp(||X||)$, so we can subtract the first term on the right from the left to obtain: 
-
-  $$ 1 \leq \epsilon \exp{||X||}$$
-
-  Dividing by epsilon taking logarithms and undoing the scaling that set $||D|| = 1/2$ we find
-
-  $$ ||D||||X|| \geq 1/2 \log{1/\epsilon}$$
-
-
-\end{proof}
-
-\begin{proposition}[2] The identity $1 \in B(\mathcal{H})$ is not a commutator.
-\end{proposition}
-\begin{proof}
-  Taking $E = 0$ in proposition 1  i.e. supposing that $[D,X] = 1$ inequality $(1)$ reduces to $ n|X^{n-1}| < |X^n|$. This inequality holds for all n so we can apply it to the left hand side to find $n(n-1)||X^{n-2}|| \leq ||X^n||$. 
-  Repeating this we get $$||X|| \leq \frac{||X^n||}{n!} \leq \frac{||X||^n}{n!} \overset{n \to \infty}\to  0$$
-
-  But this is a contradition as it implies $1 = [D,X] = 0$ 
-  
-\end{proof}
-
-\subsection{Every operator is a sum of two commutators}
-
-Let $\mathcal{H}$ be a Hilbert space and $B(\mathcal{H})$ be the algebra of bounded operator on $\mathcal{H}$ with the operator norm.
-
-
-
-
-\begin{lemma}[for proposition (3)]
-  For every operator $A \in B(\mathcal{H})$ there exist matrices with entries in $B(\mathcal{H})$ 
-
-  $$ S_A =  \begin{bmatrix} 0 & P \\ 0 & R  \end{bmatrix}, \quad T = \begin{bmatrix}  0 & 0 \\ Q & S  \end{bmatrix}$$
-
-  s.t. $$S_AT - TS_A =  \begin{bmatrix} A & 0 \\ 0 & 0  \end{bmatrix}$$
-  
-\end{lemma}
-
-\begin{proof}[Proof of lemma]
-  Let $\mathcal{K} = \bigoplus_{i=0}^{\infty} \mathcal{H}$ and $\alpha = \alpha_0 \oplus \alpha_1 \oplus ... \in \mathcal{K}$ define the two operators as follows: 
-  $$ S_A\alpha = A\alpha_1 \oplus A\alpha_2 \oplus ... , \quad T\alpha = 0 \oplus \alpha_0 \oplus \alpha_1 ...  $$
-
-  These are bounded operators with $||T|| =  1, ||S_A|| = ||A||$ we have that 
-  $$ S_AT \alpha = A\alpha_0 \oplus A\alpha_1 \oplus A\alpha_2 ... \quad , \quad TS_A = 0 \oplus A\alpha_1 \oplus A\alpha_2... $$
-
-  so $S_AT - TS_A = A \oplus 0 \oplus 0 ...$
-
-  as infinite matrices $S_A$ has entries $A$ along the diagonal above the main diagonal and zero elswhere and $T$ has ones in the diagonal below the main diagonal and $0$ elswhere.
-  Taking the isomorphism $\mathcal{K} = \mathcal{H} \oplus \bigoplus_{i=1}^{\infty} \mathcal{H} \cong \mathcal{H} \oplus \mathcal{H}$ gives the stated matrices. Computing the commutator in terms of these matrices we find four equalities
-$$ \begin{bmatrix} A & 0 \\ 0 & 0  \end{bmatrix} = \begin{bmatrix} PQ & PS \\ RQ & (RS-SR)-QP  \end{bmatrix}$$
-  $$ $$
-\end{proof}
-
-
-
-\begin{proposition}[3] Every operator in $B(\mathcal{H})$ is a sum of two commutators 
-\end{proposition}
-
-  \begin{proof} 
-  With notation as in lemma 3 we have 
-  $$ [P,Q] + [R,S] = PQ - QP + (RS-SR) = PQ = A$$
-
-  \end{proof}
-\subsection{Bibliography}
-[1] \quad T. Tao, \textit{Commutators close to the identity}, J. Operator Theory \textbf{82} (2019), no.\ 2, 369--382. \url{https://arxiv.org/abs/1805.11131} \\
-
-[2] \quad P. R. Halmos, \textit{Commutators of operators, II}, Amer. J. Math. \textbf{76} (1954), no.\ 1, 191--198. \url{https://www.jstor.org/stable/2372409}
-
-\vspace{0.32cm}  
-
-\begin{flushright}
-Marko Vinkl Bilobrk
-\end{flushright}
-  
-  
-
-\chapter{Singular Homology}
-
-\section{Homotopy invariance}
-
-$S_u$ cone operator
-$Delta^n_{hat{i}}$ the face of $\Delta^n$ obtained by removing the i-th vertex.
-
-\subsection{Triangulation of $\Delta^n \times I$}
-
-Our procedure for triangulating the prism $\Delta^n \times I$ rests on the observation that the sides of the prism are themselves prisms of $n-1$ dimensional simplices 
-i.e. that $\partial(\Delta^n \times I) = \Delta^n \times 0 \cup \Delta^n \times 1 \cup \bigcup_i \Delta^{n}_{\hat{i}} \times I$.
-Given a triangulation of $\Delta^{n-1} \times I$ we can the triangulate $\Delta^n \times I$ 
-by regarding it as $\cone_u((\partial(\Delta^n \times I)))$ where $u(\Delta^n \times I)$ is the barycenter of $\Delta^n \times I$.
-To get the procedure going note that $\partial(\Delta^0 \times I) = \Delta^0 \times 0  \cup \Delta^0\times 1$ is already a trinaguated space. Our procedure then triangulates $\Delta^0 \times I$ with $[\Delta^0 \times 1/2 , \Delta^0 \times 0],[\Delta^0 \times 1/2 , \Delta^0 \times 1]$. 
-Assuming now that we have a triangulation of $\Delta^{n-1} \times I$ we triangulate $\partial(\Delta^n \times I)$ as follows: \newline
-define affine maps $\varphi_i \times \mathbb{1}_I : \Delta^{n-1} \times I \to \Delta^n_{\hat{i}} \times I \subset \partial \Delta^n \times I$ by $\varphi_i(u(\Delta^{n-1})) = u(\Delta^n_{\hat{i}})$. These $n$ maps together give a triangulation of $\partial \Delta^n \times I$ adding aslo $\Delta^n \time 0, \Delta^n \times 1$ we obtain a triangulation of $\partial(\Delta^n \times I)$. Now we cone with $u(\Delta^n \times I)$ and so triangulate the prism.
-\marginnote{technially the triangulation is given by the images of the triangulation of $\Delta^{n-1} \times I$ by the phis.}
-
-\subsection{The prism operator}
-
-With a triangulation in hand we can now define the prism operator. We do this by transating the above into algebra. We first define an operator $T:C_n(\Delta^n) \to C_{n+1}(\Delta^n \times I)$
-
-
-
-\chapter{Appendix A: Modules}
+\chapter{A: Modules}
 
 Modules are a simultaneous generalization of vector spaces, ideals and quotient rings.
 The easiest way (for me) to remeber the definiton is that a module is a vector space except that the scalar multiplication comes from a ring.
@@ -463,7 +270,7 @@ is an \textbf{left $R$-module}. If the muultiplcation is on the right then we ca
   
 \end{definition}
 
-\chapter{Appendix B: Review of Linear Algebra}
+\chapter{B: Review of Linear Algebra}
 
 
 \section{The determinant}
@@ -531,7 +338,7 @@ What remains to be determined is how the product of signs appearing in front of 
   
 \end{definition}
 
-\chapter{Appendix C: Matrix polynomials and clasification of pencils}
+\chapter{C: Matrix polynomials and clasification of pencils}
 
 In this appendix we develop the algebra of matrices with coefficents in $k[\lambda]$ (k an algebraically closed field).
 
