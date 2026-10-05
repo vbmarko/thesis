@@ -1,0 +1,1315 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tufte-Style Book (Documentation Template)
+% LaTeX Template
+% Version 1.0 (5/1/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% The Tufte-LaTeX Developers (tufte-latex.googlecode.com)
+%
+% License:
+% Apache License (Version 2.0)
+%
+% IMPORTANT NOTE:
+% In addition to running BibTeX to compile the reference list from the .bib
+% file, you will need to run MakeIndex to compile the index at the end of the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{tufte-book} % Use the tufte-book class which in turn uses the tufte-common class
+
+\hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+
+\usepackage{polynom}
+
+\usepackage{microtype} % Improves character and word spacing
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage{booktabs} % Better horizontal rules in tables
+
+\usepackage{graphicx} % Needed to insert images into the document
+\graphicspath{{graphics/}} % Sets the default location of pictures
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
+
+\usepackage{fancyvrb} % Allows customization of verbatim environments
+\fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
+
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}} % New command to create parentheses around text in tables which take up no horizontal space - this improves column spacing
+\newcommand{\hangstar}{\makebox[0pt][l]{*}} % New command to create asterisks in tables which take up no horizontal space - this improves column spacing
+
+\usepackage{xspace} % Used for printing a trailing space better than using a tilde (~) using the \xspace command
+
+\newcommand{\monthyear}{\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number\year} % A command to print the current month and year
+
+\newcommand{\openepigraph}[2]{ % This block sets up a command for printing an epigraph with 2 arguments - the quote and the author
+\begin{fullwidth}
+\sffamily\large
+\begin{doublespace}
+\noindent\allcaps{#1}\\ % The quote
+\noindent\allcaps{#2} % The author
+\end{doublespace}
+\end{fullwidth}
+}
+
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage} % Command to insert a blank page
+
+\usepackage{units} % Used for printing standard units
+
+\newcommand{\hlred}[1]{\textcolor{Maroon}{#1}} % Print text in maroon
+\newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}} % Used for printing commands in the index, moves the slash left so the command name aligns with the rest of the text in the index 
+\newcommand{\hairsp}{\hspace{1pt}} % Command to print a very short space
+\newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace} % Command to print i.e.
+\newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace} % Command to print e.g.
+\newcommand{\na}{\quad--} % Used in tables for N/A cells
+\newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}} % Typesets the font size, leading, and measure in the form of: 10/12x26 pc.
+\newcommand{\tuftebs}{\symbol{'134}} % Command to print a backslash in tt type in OT1/T1
+
+\providecommand{\XeLaTeX}{X\lower.5ex\hbox{\kern-0.15em\reflectbox{E}}\kern-0.1em\LaTeX}
+\newcommand{\tXeLaTeX}{\XeLaTeX\index{XeLaTeX@\protect\XeLaTeX}} % Command to print the XeLaTeX logo while simultaneously adding the position to the index
+
+\newcommand{\doccmdnoindex}[2][]{\texttt{\tuftebs#2}} % Command to print a command in texttt with a backslash of tt type without inserting the command into the index
+
+\newcommand{\doccmddef}[2][]{\hlred{\texttt{\tuftebs#2}}\label{cmd:#2}\ifthenelse{\isempty{#1}} % Command to define a command in red and add it to the index
+{ % If no package is specified, add the command to the index
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% Command name
+}
+{ % If a package is also specified as a second argument, add the command and package to the index
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% Command name
+\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% Package name
+}}
+
+\newcommand{\doccmd}[2][]{% Command to define a command and add it to the index
+\texttt{\tuftebs#2}%
+\ifthenelse{\isempty{#1}}% If no package is specified, add the command to the index
+{%
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% Command name
+}
+{%
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% Command name
+\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% Package name
+}}
+
+
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{proposition}
+\newtheorem*{proposition}{Proposition}
+
+\theoremstyle{lemma}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{corolarry}
+\newtheorem{corolarry}{Corolarry}
+
+
+
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\adj}{adj}
+
+\DeclareMathOperator{\lc}{lc}
+
+
+
+% A bunch of new commands to print commands, arguments, environments, classes, etc within the text using the correct formatting
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
+\newenvironment{docspec}{\begin{quotation}\ttfamily\parskip0pt\parindent0pt\ignorespaces}{\end{quotation}}
+\newcommand{\docenv}[1]{\texttt{#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
+\newcommand{\docenvdef}[1]{\hlred{\texttt{#1}}\label{env:#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
+\newcommand{\docpkg}[1]{\texttt{#1}\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}}
+\newcommand{\doccls}[1]{\texttt{#1}}
+\newcommand{\docclsopt}[1]{\texttt{#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
+\newcommand{\docclsoptdef}[1]{\hlred{\texttt{#1}}\label{clsopt:#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
+\newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
+\newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
+\newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
+
+\usepackage{makeidx} % Used to generate the index
+\makeindex % Generate the index which is printed at the end of the document
+
+% This block contains a number of shortcuts used throughout the book
+\newcommand{\vdqi}{\textit{VDQI}\xspace}
+\newcommand{\ei}{\textit{EI}\xspace}
+\newcommand{\ve}{\textit{VE}\xspace}
+\newcommand{\be}{\textit{BE}\xspace}
+\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}\xspace}
+\newcommand{\EI}{\textit{Envisioning Information}\xspace}
+\newcommand{\VE}{\textit{Visual Explanations}\xspace}
+\newcommand{\BE}{\textit{Beautiful Evidence}\xspace}
+\newcommand{\TL}{Tufte-\LaTeX\xspace}
+
+%----------------------------------------------------------------------------------------
+%	BOOK META-INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{ \thanks{Thanks to Edward R.~Tufte for his inspiration.}} % Title of the book
+
+\author[The Tufte-LaTeX Developers]{The Tufte-LaTeX\ Developers} % Author
+
+\publisher{Publisher of This Book} % Publisher
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+%----------------------------------------------------------------------------------------
+%	EPIGRAPH
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty}
+\openepigraph{The public is more familiar with bad design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.}{Paul Rand, {\itshape Design, Form, and Chaos}}
+\vfill
+\openepigraph{A designer knows that he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.}{Antoine de Saint-Exup\'{e}ry}
+\vfill
+\openepigraph{\ldots the designer of a new system must not only be the implementor and the first large-scale user; the designer should also write the first user manual\ldots If I had not participated fully in all these activities, literally hundreds of improvements would never have been made, because I would never have thought of them or perceived why they were important.}{Donald E. Knuth}
+
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title page
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+Copyright \copyright\ \the\year\ \thanklessauthor
+
+\par\smallcaps{Published by \thanklesspublisher}
+
+\par\smallcaps{tufte-latex.googlecode.com}
+
+\par Licensed under the Apache License, Version 2.0 (the ``License''); you may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://www.apache.org/licenses/LICENSE-2.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \smallcaps{``AS IS'' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\index{license}
+
+\par\textit{First printing, \monthyear}
+\end{fullwidth}
+
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Print the table of contents
+
+%----------------------------------------------------------------------------------------
+
+\listoffigures % Print a list of figures
+
+%----------------------------------------------------------------------------------------
+
+\listoftables % Print a list of tables
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION PAGE
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+~\vfill
+\begin{doublespace}
+\noindent\fontsize{18}{22}\selectfont\itshape
+\nohyphenation
+Dedicated to those who appreciate \LaTeX{} and the work of \mbox{Edward R.~Tufte} and \mbox{Donald E.~Knuth}.
+\end{doublespace}
+\vfill
+\vfill
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\chapter*{Introduction} % The asterisk leaves out this chapter from the table of contents
+
+This sample book discusses the design of Edward Tufte's books\cite{Tufte2001,Tufte1990,Tufte1997,Tufte2006} and the use of the \doccls{tufte-book} and \doccls{tufte-handout} document classes.
+
+%----------------------------------------------------------------------------------------
+
+\mainmatter
+
+
+
+\chapter{Syzygies and Groebner bases}
+
+We will assume that the reader is familiar with basic notions of Ring theory, nevertheless, due to its centrality in our upocming discussion we will recall here the definition of an Ideal. 
+
+
+\begin{definition}[Ideal]
+  Let $R$ be a ring a subset $I \subset R$ is a \textbf{left (right) Ideal of R} if it is a subring which is closed under left (right) multiplication by R that is $I=RI (I=IR)$. 
+  If $I$ is simultaneously a left and right ideal then it is an \textbf{Ideal of R}. Inclusion of $I$ in $R$ as an ideal is denoted by $I \triangleleft{} R$.
+  
+\end{definition}
+
+
+\marginnote{In an allussion to the notation used for normal subgroups in group theory.}
+
+Ideals are important in ring theory because the set $R/I = \{ \bar{r} := r +I; r \in R \}$ forms a ring called the \textbf{quoutient ring of R by I} with operations inherited for $R$
+i.e.: $(r+I)+(s+I) = (r+s)+(I+I) = (r+s) + I$ and $(r+I)(s+I) = rs + rI +sI + I^2 = rs + I + I +I^2 = rs + I$. 
+In this way we get from an ideal a natural ring homomorphism $\nu:R \to R/I$ defined by $\nu(r) = \bar{r}$. Clearly $\ker{\nu} = I$. A similar relation holds in the other direction:
+
+\begin{proposition}
+  Let $\varphi:A \to B$ be a homomorphism of rings then $\ker{\varphi}$ is an ideal of A and $\im{\varphi} = A/\ker{\varphi}$.
+  
+\end{proposition}
+
+\begin{proof}[Proof (of Proposition)]~\newline 
+  $ \left(B \ni 0 = \varphi(A)0 = \varphi(A)\varphi(\ker \varphi) = \varphi(A \ker \varphi)\right) \implies A \ker \varphi = \ker \varphi$.
+  Notice that $\varphi^{-1}:\im \varphi \to A/\ker \varphi$ is a function and moreover a ring homomprhism as: $\varphi^{-1}(\varphi(a)+\varphi(b)) = a + b + \ker \varphi = (a+ \ker{ \varphi}) + (b+ \ker{\varphi})  = \varphi^{-1}(\varphi(a)) + \varphi^{-1}(\varphi(b))$.
+  Moreover $\ker \varphi^{-1} = 0$ so it is an isomorphism with inverse %%$\varphi: \ker{\varhphi} \to \im \phi$ 
+  (here we have given this map the same name as the map in the hypothesis, though technially what is going on is $\varphi'(\bar{a}) = \varphi'(a + \ker \varphi) = \varphi(a) + \varphi(\ker \varphi) = \varphi(a).$).
+  
+\end{proof}
+
+
+\chapter{Basic notions of Algebraic Geometry}
+
+
+
+\pagebreak{}
+
+
+Algebraic geometry is concerned with plane curves $X$ defined by polynomial equations $X = \mathcal{Z}(f)$ and their heigher dimensonal analogoues called Varieties. We study the geometric c
+
+\section{Ideals, Radicals and the Zariski Topology }
+
+In this chapter $k$ is  a field of characteristic $0$.
+
+
+
+
+
+\section{The trouble with determining Ideal membership in non PIDs}
+
+
+
+\chapter{Some facts about commutators of bounded operators on Hilbert spaces}
+
+\subsection{Preamble}
+This report contains proofs of three proposition. 
+The proofs of $(1),(2)$ are from Terence Taos Commutators close to the identity [1],
+the proof of (3) is from Paul R. Halmos' Commutators of Operators II [2]. 
+I've  tried to reproduce the proofs faithfully while expanding on some of the routine steps passed over in the references. For context, further results and the names of those who first found these facts consult the references. 
+
+\subsection{The identity is not a commutator}
+
+Let $\mathcal{H}$ be a Hilbert space and $B(\mathcal{H})$ be the algebra of bounded operator on $\mathcal{H}$ with the operator norm.
+
+
+\begin{proposition}[1]  
+  If $D,X \in B(\mathcal{H})$ are operators s.t. $[D,X] = 1 + E$ for some operator $E$ with $||E|| = \epsilon$, then $||D||||X|| \geq 1/2 \log{1/\epsilon}$
+  
+\end{proposition}
+
+\begin{proof}
+  To simplify calculations we divide D by a constant s.t. $||D|| = 1/2$ and multipy X by the same constant by doing this we have that $||[D,X^n]|| \leq ||D||||X^n|| + ||X^n||||D|| = ||X^n||$. \\  
+  Begin by establishing the identity $$[D,X^n] = nX^{n-1} + X^{n-1}E + X^{n-2}EX + ... + EX^{n-1} = nX^{n-1} + \sum_{i=0}^{n-1}X^{n-1-i}EX^{i}.$$ The base case is clear $[D,X] = 1 + E = 1*X^{0} + X^{0}E$.
+  For the inductive step note first that for any $A,B,C$ we have $[A,BC] = B[A,C] + [A,B]C$. In particular 
+  \begin{align*}
+    [D,X^{n+1}] &= X[D,X^{n}] + [D,X]X^n \\ 
+             &= X \left( nX^{n-1}  + \sum_{i=0}^{n-1}X^{n-1-i}EX^i \right) + (1+E)X^n  \\ 
+             &= (n+1)X^n  + \left( X^nE + X^{n-1}EX + ... + XEX^{n-1} + EX^n \right)\\
+             &= (n+1)X^n + \sum_{i = 0}^{n}X^{n-i}EX^i
+  \end{align*}
+
+  Now we need to establish the inequality $$n||X^{n-1}|| \leq n \epsilon ||X||^{n-1} + ||X^n|| \quad (1).$$ To do this we use the triangle inequality to bound $\sum_{i = 0}^{n-1}X^{n-i}EX^i \leq n \epsilon ||X||^{n-1}$, and write 
+
+  \begin{align*}
+    &-n X^{n-1} = \sum_{i = 0}^{n-1}X^{n-1-i}EX^i - [D,X^] \\
+    &n||X^{n-1}|| = || \sum_{i = 0}^{n-1}X^{n-1-i}EX^i - [D,X^n]|| \leq n \epsilon ||X||^{n-1} + ||X||^n \\ 
+  \end{align*}
+
+  We divide this inequality by $n!$ and sum over $n$ to obtain: 
+
+  $$  \sum_{n = 0}^{\infty} \frac{||X^{n}||}{n!} \leq \sum_{n=1}^{\infty} \frac{||X^n||}{n!} + \epsilon \sum_{n = 0}^{\infty} \frac{||X||^n}{n!}$$
+  
+  The sum $\sum_{n=1}^{\infty} \frac{||X^n||}{n!}$ is bounded  by $\exp(||X||)$, so we can subtract the first term on the right from the left to obtain: 
+
+  $$ 1 \leq \epsilon \exp{||X||}$$
+
+  Dividing by epsilon taking logarithms and undoing the scaling that set $||D|| = 1/2$ we find
+
+  $$ ||D||||X|| \geq 1/2 \log{1/\epsilon}$$
+
+
+\end{proof}
+
+\begin{proposition}[2] The identity $1 \in B(\mathcal{H})$ is not a commutator.
+\end{proposition}
+\begin{proof}
+  Taking $E = 0$ in proposition 1  i.e. supposing that $[D,X] = 1$ inequality $(1)$ reduces to $ n|X^{n-1}| < |X^n|$. This inequality holds for all n so we can apply it to the left hand side to find $n(n-1)||X^{n-2}|| \leq ||X^n||$. 
+  Repeating this we get $$||X|| \leq \frac{||X^n||}{n!} \leq \frac{||X||^n}{n!} \overset{n \to \infty}\to  0$$
+
+  But this is a contradition as it implies $1 = [D,X] = 0$ 
+  
+\end{proof}
+
+\subsection{Every operator is a sum of two commutators}
+
+Let $\mathcal{H}$ be a Hilbert space and $B(\mathcal{H})$ be the algebra of bounded operator on $\mathcal{H}$ with the operator norm.
+
+
+
+
+\begin{lemma}[for proposition (3)]
+  For every operator $A \in B(\mathcal{H})$ there exist matrices with entries in $B(\mathcal{H})$ 
+
+  $$ S_A =  \begin{bmatrix} 0 & P \\ 0 & R  \end{bmatrix}, \quad T = \begin{bmatrix}  0 & 0 \\ Q & S  \end{bmatrix}$$
+
+  s.t. $$S_AT - TS_A =  \begin{bmatrix} A & 0 \\ 0 & 0  \end{bmatrix}$$
+  
+\end{lemma}
+
+\begin{proof}[Proof of lemma]
+  Let $\mathcal{K} = \bigoplus_{i=0}^{\infty} \mathcal{H}$ and $\alpha = \alpha_0 \oplus \alpha_1 \oplus ... \in \mathcal{K}$ define the two operators as follows: 
+  $$ S_A\alpha = A\alpha_1 \oplus A\alpha_2 \oplus ... , \quad T\alpha = 0 \oplus \alpha_0 \oplus \alpha_1 ...  $$
+
+  These are bounded operators with $||T|| =  1, ||S_A|| = ||A||$ we have that 
+  $$ S_AT \alpha = A\alpha_0 \oplus A\alpha_1 \oplus A\alpha_2 ... \quad , \quad TS_A = 0 \oplus A\alpha_1 \oplus A\alpha_2... $$
+
+  so $S_AT - TS_A = A \oplus 0 \oplus 0 ...$
+
+  as infinite matrices $S_A$ has entries $A$ along the diagonal above the main diagonal and zero elswhere and $T$ has ones in the diagonal below the main diagonal and $0$ elswhere.
+  Taking the isomorphism $\mathcal{K} = \mathcal{H} \oplus \bigoplus_{i=1}^{\infty} \mathcal{H} \cong \mathcal{H} \oplus \mathcal{H}$ gives the stated matrices. Computing the commutator in terms of these matrices we find four equalities
+$$ \begin{bmatrix} A & 0 \\ 0 & 0  \end{bmatrix} = \begin{bmatrix} PQ & PS \\ RQ & (RS-SR)-QP  \end{bmatrix}$$
+  $$ $$
+\end{proof}
+
+
+
+\begin{proposition}[3] Every operator in $B(\mathcal{H})$ is a sum of two commutators 
+\end{proposition}
+
+  \begin{proof} 
+  With notation as in lemma 3 we have 
+  $$ [P,Q] + [R,S] = PQ - QP + (RS-SR) = PQ = A$$
+
+  \end{proof}
+\subsection{Bibliography}
+[1] \quad T. Tao, \textit{Commutators close to the identity}, J. Operator Theory \textbf{82} (2019), no.\ 2, 369--382. \url{https://arxiv.org/abs/1805.11131} \\
+
+[2] \quad P. R. Halmos, \textit{Commutators of operators, II}, Amer. J. Math. \textbf{76} (1954), no.\ 1, 191--198. \url{https://www.jstor.org/stable/2372409}
+
+\vspace{0.32cm}  
+
+\begin{flushright}
+Marko Vinkl Bilobrk
+\end{flushright}
+  
+  
+
+\chapter{Singular Homology}
+
+\section{Homotopy invariance}
+
+$S_u$ cone operator
+$Delta^n_{hat{i}}$ the face of $\Delta^n$ obtained by removing the i-th vertex.
+
+\subsection{Triangulation of $\Delta^n \times I$}
+
+Our procedure for triangulating the prism $\Delta^n \times I$ rests on the observation that the sides of the prism are themselves prisms of $n-1$ dimensional simplices 
+i.e. that $\partial(\Delta^n \times I) = \Delta^n \times 0 \cup \Delta^n \times 1 \cup \bigcup_i \Delta^{n}_{\hat{i}} \times I$.
+Given a triangulation of $\Delta^{n-1} \times I$ we can the triangulate $\Delta^n \times I$ 
+by regarding it as $\cone_u((\partial(\Delta^n \times I)))$ where $u(\Delta^n \times I)$ is the barycenter of $\Delta^n \times I$.
+To get the procedure going note that $\partial(\Delta^0 \times I) = \Delta^0 \times 0  \cup \Delta^0\times 1$ is already a trinaguated space. Our procedure then triangulates $\Delta^0 \times I$ with $[\Delta^0 \times 1/2 , \Delta^0 \times 0],[\Delta^0 \times 1/2 , \Delta^0 \times 1]$. 
+Assuming now that we have a triangulation of $\Delta^{n-1} \times I$ we triangulate $\partial(\Delta^n \times I)$ as follows: \newline
+define affine maps $\varphi_i \times \mathbb{1}_I : \Delta^{n-1} \times I \to \Delta^n_{\hat{i}} \times I \subset \partial \Delta^n \times I$ by $\varphi_i(u(\Delta^{n-1})) = u(\Delta^n_{\hat{i}})$. These $n$ maps together give a triangulation of $\partial \Delta^n \times I$ adding aslo $\Delta^n \time 0, \Delta^n \times 1$ we obtain a triangulation of $\partial(\Delta^n \times I)$. Now we cone with $u(\Delta^n \times I)$ and so triangulate the prism.
+\marginnote{technially the triangulation is given by the images of the triangulation of $\Delta^{n-1} \times I$ by the phis.}
+
+\subsection{The prism operator}
+
+With a triangulation in hand we can now define the prism operator. We do this by transating the above into algebra. We first define an operator $T:C_n(\Delta^n) \to C_{n+1}(\Delta^n \times I)$
+
+
+
+\chapter{Appendix A: Modules}
+
+Modules are a simultaneous generalization of vector spaces, ideals and quotient rings.
+The easiest way (for me) to remeber the definiton is that a module is a vector space except that the scalar multiplication comes from a ring.
+
+\begin{definition}[$R$-module]
+  Let $R$ be a ring an abelian group $M$ together with a map $*:R \times M \to M$ satisfying
+  
+  \begin{align}
+    &r*(s*m) = (rs)*m \\
+    &r*(m+n) = r*m+r*n \\
+    &(r+s)*m = r*m+s*m
+  \end{align}
+
+
+is an \textbf{left $R$-module}. If the muultiplcation is on the right then we call M a right $R$-module if $R$ is commuatitve the we extetend the comuativity to multiplication with M and just call $M$ and $R$-module. Ussually the map $*$ is denoted by juxatopsition because either it is identicall to the multiplication in $R$ or the distiction is made by adopting different symbols for elements of $R$ and $M$ (e.g. $Av$). 
+  
+\end{definition}
+
+\chapter{Appendix B: Review of Linear Algebra}
+
+
+\section{The determinant}
+
+\begin{definition}[Determinant]
+  The determinant the unique alternating multirinear map $$ \det: (\mathbb{F}^n)^n \to \mathbb{F}$$ s.t. $$ \det(e_1,e_2,...,e_n) = 1.$$
+  It is also defined for matrices. For an $n \times n$ matrix $A$  $$\det(A) := \det(\sum_j A_{j1} e_1,,...,\sum_j A_{jn}e_n)$$
+  
+\end{definition}
+
+\begin{lemma} if vectors $v_1,...,v_n$ are linearly dependent  then $$\det(v_1,...,v_n) = 0$$
+  
+\end{lemma}
+
+\begin{proof}
+  By alternation $\det(...,a,...,a,...) = 0$, that is if any two vectors among the arguments are equal then the determinant is equal to $0$. Hence if $v_1 = \sum_{i = 2}^n \alpha_i v_i$ then $\det(v_1,v_2,...,v_n) = \sum_{i=2}^n \alpha_{i} \det(v_i,v_2,...,v_n) = 0$
+  
+\end{proof}
+
+\begin{proposition}[Leibnitz formula for dertmiant]
+ $$ \det{A} := \sum_{\sigma \in S_n} sign(\sigma) \prod_{i=1}^n A_{ii^\sigma}$$
+  
+\end{proposition}
+
+\begin{definition}[Minors, Cofactors]
+  Let $A$ be an $n \times m$ matrix a minor of order $p$ is the determinant 
+  $$ A\binom{i_1,...,i_p}{j_1,...,j_p}  := \det \begin{bmatrix} A_{i_1j_1},..., A_{i_1j_p}  \\ \vdots \\ A_{i_pj_1},...,A_{i_pj_p} \end{bmatrix}$$
+  For a square matrix $A$ of order $n$ the $ij-th$ principal minor is the order $n-1$ minor obtained by deleting from $A$ the $i$-th row and $j$-th collumn. 
+  We deonote it $$A\binom{\hat{i}}{\hat{j}} := A\binom{1,...,i-1,i+1,...n}{1,...,j-1,j+1,...,n}$$
+  The $ij$-th coffacor of $A$ is then then quantity $C_{ij} := (-1)^{i+j}A\binom{\hat{i}}{\hat{j}}.$
+\end{definition}
+
+\begin{proposition}[Laplaces formula]
+  $$\forall{i,j} \quad  \det(A) = \sum_{s=1}^n A_{is}C_{is} = \sum_{t=1}^n A_{tj}C_{tj}$$
+
+\end{proposition}
+
+\begin{proof}
+  By applying Laplaces formula recursivley notice that once fully expanded each summand coresponds to a permutaion of $[1,n]$. 
+What remains to be determined is how the product of signs appearing in front of each summand relates to the sign of the coresponding permutaion. To do so we turn now to a problem whos relation to our aim may not be immediately appearent. \linebreak
+\par{
+  \quad consider a permuation $(m_1,m_2,...,m_n)$.Writing $m_{k_i} = i$, we can compute the sign of this permutaion by 1st reordering it as $(1,m_2,...,m_{k_1-1},m_{k_1+1},...,m_n)$, by applying $k_1-1$ transpotions each moving $1$ one closer to the first position.
+   Now by the same process we transform the list to $(1,2,m_{k_3},...,m_{k_n})$ If $k_2 > k_1$ this is achieved by $k_2 - 2$ transpotions, while if $k_2 < k_1$ it is achieved by $k_2 - 2 +1 = k_2 - 1$ transpotions (because two has shifted up by one in the list).
+   And in general it takes $k_r - r + |\{i < r | k_i > k_r\}|$ transpotions to move $r$ to the $r$-th position in our manner. And so the sign of our permutaion is $$ \prod_{r=1}^n -1^{k_r - r + |\{i < r | k_i > k_r\}|}$$ 
+ }
+\end{proof}
+
+
+\begin{corolarry}
+  Let $A$ be a $n \times n$ matrix and $v$ a $n$ vector. Then the quantites 
+  $$ \displaystyle\sum_{i=1}^{n} v_i C_{ij},~~ \displaystyle\sum_{j=1}^{n} v_j C_{ij} $$
+
+  are determinants of matrices obtained by replacing the $j$-th collumn or $i$-th row of $A$ by $v$ respectively.
+  Becuase the determinant of matrix with a repetead row or collumn is $0$ this tell us that in parituclar:
+
+  $$ \displaystyle\sum_{s=1}^{n} A_{is}C_{js} = \displaystyle\sum_{s=1}^{n} A_{si}C_{sj} =  \delta_{ij} \det(A)$$
+
+  
+\end{corolarry}
+
+\begin{definition}[Adjugate matrix]
+  The adjugate of a $n \times n$ matrix A is an $n \times n$ matrix with entries $$\adj(A)_{ij} = C_{ji}$$
+  It has the property (Corolarry 1) that $$ \adj(A)A = A\adj(A) = \det(A)I$$
+  Hence if $A$ is invertible $A^{-1} = \frac{1}{\det(A)}\adj(A)$, while if $A$ is singular then $\adj(A)$ is a zero divisor of $A$.
+  
+\end{definition}
+
+\chapter{Appendix C: Matrix polynomials and clasification of pencils}
+
+In this appendix we develop the algebra of matrices with coefficents in $k[\lambda]$ (k an algebraically closed field).
+
+\section{Matrix polynomials, polynomial matrices}
+
+  By a matrix polynomial we mean a matrix whose entires are univariate polynomials i.e. an $A \in M(n,m,k[\lambda])$.
+  By grouping together like powers of lambda $A$ can also be regarded as a polynomial with matrix coefficents i.e. $A = A_0 \lambda^m + A_1 \lambda^{m-1}... A_{m-1}\lambda + A_m \in M(n,m,k)[\lambda]$. A square matrix polynmial is called \textbf{regular} if $|A_0| \neq 0$
+
+  \subsection{The divsion algorithm}
+
+  Let $A(\lambda) = \sum_{i=0}^{r} A_i,\lambda^{r-i}, B(\lambda) = \sum_{i=0}^{s} B_i \lambda^{s - i}$ by $n \times n$ matrix polynomials and $B$ regular. Dividing A by B means expressing A as 
+  $$ A = Q(\lambda)B(\lambda) + R(\lambda)$$
+
+  where $Q$ is of degree $r-s$ and $R$ is of degree less than $s$. The algorithm proceds in the same way as divison of scalar polynomials. The thing to notice is that $\lambda^{r-s}A_0B_0^{-1}B = Q_0(\lambda)B$ is a degree s polynomial with leading term $A_0 \lambda^s$, so  $R_0 = A - Q(\lambda)B$ produces a polynomial of degree less than $r$.
+  If $\deg(R_0) > s$ we repeat this process with $R_0$ in the place of $A$ to produce an $R_1$ and so on until we get an $R_t$ of degree less than $s$.
+
+  \begin{algorithm}[H]
+\caption{Left quotient}\label{l_quot}
+\begin{algorithmic}[1]
+\Procedure{Left quotient}{$A,B$} \Comment{Returns $Q,R$ s.t. $A = QB+R$}
+\State $Q = 0$
+\State $B_0^{-1} = lc(B)^{-1}$
+\While{$\deg(A) \geq deg(B)$}
+\State $A \gets A - \lambda^{\deg(A)-\deg(B)} \lc(A)B_0^{-1}B$
+\State $Q\gets Q + \lambda^{\deg(A)-\deg(B)} \lc(A)B_0^{-1}$
+\EndWhile\label{l_quout}
+\State \textbf{return} $(Q,A)$\Comment{By the end of the while loop $A = R$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Charactesitic Polynomial, Generalized Bezouts theorem and Cayley-Hamiltion theorem}
+
+A matrix polynomial are all familiar with from linear algebra is $\lambda I - A$ where a in a scalar $n \times n $ matrix. 
+It's determinant $\Delta(\lambda;A) = |\lambda I - A|$ is the characteristic polynomial of $A$. In this section we shall show that if a matrix polynomial $P(\lambda)$ has a as $A$ as a root then we can factor $\lambda I - A$ from it on either the left or right.
+
+\begin{theorem}[Generalized Bezouts theorem / G.B.T]
+  Let $P(\lambda) = Q(\lambda)(\lambda I - A) + R(\lambda) = (\lambda I - A)\hat{Q}(\lambda) + \hat{R}(\lambda) $
+  be a matrix polynomial and $R(\lambda), \hat{R}(\lambda)$ it's left, right remainder upond divison by $\lambda I - A$. Then $R = P(A)$, $\hat{R} = \hat{P}(A)$  
+\end{theorem}
+
+\begin{proof}
+  Set $P = P_0 \lambda^m + P_1 \lambda^{m-1} + ... + P_m = R_0$ and compute the left quoutient:
+
+  \begin{align*} 
+    &R_1 = R_0  - \lambda^{m-1}P_0(\lambda I - A) =  (P_0A + P_1)\lambda^{m-1} + P_2\lambda^{m-2} + ... + P_m \\
+    &R_2 = R_1  - \lambda^{m-2}(P_1+P_0A)(\lambda I - A) =  (P_0A^2+ P_1A + P_2)\lambda^{m-2} + P_3\lambda^{m-3} + ... + P_m \\
+    &... \\
+    &R_{m} = R_{m-1}  - (P_0A^{m-1} + P_1A^{m-2} +... + P_{m-1}A)(\lambda I - A) =  (P_0A^m + P_1A^{m-1}+... P_{m-1}A)\lambda^{0} + P_m  = P(A)\\
+  \end{align*}
+
+  A similar computation of the right quoutient show the other claim.
+\end{proof}
+
+\begin{corolarry}[Corolarry to G.B.T]
+   $F(A) = \hat{F}(A) = 0 \iff F(\lambda)$ is divisible by $(\lambda I - A)$
+\end{corolarry}
+
+\begin{theorem}[Cayley-Hamiltion]
+  An $n \times n$ scalar matrix satifies it's own characteristic equation that is: 
+  $$\Delta(A;A) = 0$$
+  
+\end{theorem}
+
+\begin{proof}
+  The trick is to consider the adjugate of $\lambda I - A$; it yields us the equations 
+  $$ \adj(\lambda I - A)(\lambda I - A) = (\lambda I  - A)\adj(\lambda I - A) = \Delta(\lambda;A)I$$
+  Showing that $\Delta(\lambda;A)I$ is divisible by $A$ on both sides. By G.B.T we have 
+  $$ \Delta(A;A) = 0$$  
+  
+\end{proof}
+
+
+
+
+
+
+
+
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapter{The Design of Tufte's Books}
+\label{ch:tufte-design}
+
+\newthought{The pages} of a book are usually divided into three major sections: the front matter (also called preliminary matter or prelim), the main matter (the core text of the book), and the back matter (or end matter).
+
+\newthought{The front matter} of a book refers to all of the material that comes before the main text. The following table shows a list of material that appears in the front matter of \VDQI, \EI, \VE, and \BE along with its page number. Page numbers that appear in parentheses refer to folios that do not have a printed page number (but they are still counted in the page number sequence).
+
+\bigskip
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{Books} \\
+\cmidrule(l){2-5} 
+Page content & \vdqi & \ei & \ve & \be \\
+\midrule
+Blank half title page & \hangp{1} & \hangp{1} & \hangp{1} & \hangp{1} \\
+Frontispiece\footnotemark{}
+& \hangp{2} & \hangp{2} & \hangp{2} & \hangp{2} \\
+Full title page & \hangp{3} & \hangp{3} & \hangp{3} & \hangp{3} \\
+Copyright page & \hangp{4} & \hangp{4} & \hangp{4} & \hangp{4} \\
+Contents & \hangp{5} & \hangp{5} & \hangp{5} & \hangp{5} \\
+Dedication & \hangp{6} & \hangp{7} & \hangp{7} & 7 \\
+Epigraph & -- & -- & \hangp{8} & -- \\
+Introduction & \hangp{7} & \hangp{9} & \hangp{9} & 9 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\vspace{-7\baselineskip}\footnotetext{The contents of this page vary from book to book. In \vdqi this page is blank; in \ei and \ve this page holds a frontispiece; and in \be this page contains three epigraphs.}
+\vspace{7\baselineskip}
+
+\bigskip
+The design of the front matter in Tufte's books varies slightly from the traditional design of front matter. First, the pages in front matter are traditionally numbered with lowercase roman numerals (\eg, i, ii, iii, iv,~\ldots). Second, the front matter page numbering sequence is usually separate from the main matter page numbering. That is, the page numbers restart at 1 when the main matter begins. In contrast, Tufte has enumerated his pages with arabic numerals that share the same page counting sequence as the main matter.
+
+There are also some variations in design across Tufte's four books. The page opposite the full title page (labeled ``frontispiece'' in the above table) has different content in each of the books. In \VDQI, this page is blank; in \EI and \VE, this page holds a frontispiece; and in \BE, this page contains three epigraphs.
+
+The dedication appears on page~6 in \vdqi (opposite the introduction), and is placed on its own spread in the other books. In \ve, an epigraph shares the spread with the opening page of the introduction.
+
+None of the page numbers (folios) of the front matter are expressed except in \be, where the folios start to appear on the dedication page.
+
+\newthought{The full title page} of each of the books varies slightly in design. In all the books, the author's name appears at the top of the page, the title it set just above the center line, and the publisher is printed along the bottom margin. Some of the differences are outlined in the following table.
+
+\bigskip
+\begin{center}
+\footnotesize
+\begin{tabular}{lllll}
+\toprule
+Feature & \vdqi & \ei & \ve & \be \\
+\midrule
+Author & & & & \\
+\quad Typeface & serif & serif & serif & sans serif \\
+\quad Style & italics & italics & italics & upright, caps \\
+\quad Size & 24 pt & 20 pt & 20 pt & 20 pt \\
+\addlinespace
+Title & & & & \\
+\quad Typeface & serif & serif & serif & sans serif \\
+\quad Style & upright & italics & upright & upright, caps \\
+\quad Size & 36 pt & 48 pt & 48 pt & 36 pt \\
+\addlinespace
+Subtitle & & & & \\
+\quad Typeface & \na & \na & serif & \na \\
+\quad Style & \na & \na & upright & \na \\
+\quad Size & \na & \na & 20 pt & \na \\
+\addlinespace
+Edition & & & & \\
+\quad Typeface & sans serif & \na & \na & \na \\
+\quad Style & upright, caps & \na & \na & \na \\
+\quad Size & 14 pt & \na & \na & \na \\
+\addlinespace
+Publisher & & & & \\
+\quad Typeface & serif & serif & serif & sans serif \\
+\quad Style & italics & italics & italics & upright, caps \\
+\quad Size & 14 pt & 14 pt & 14 pt & 14 pt \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{figure*}[p]
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/vdqi-title.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ei-title.pdf}}
+\\\vspace{\baselineskip}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ve-title.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/be-title.pdf}}
+\end{figure*}
+
+\newthought{The tables of contents} in Tufte's books give us our first glimpse of the structure of the main matter. \VDQI is split into two parts, each containing some number of chapters. His other three books only contain chapters---they're not broken into parts.
+
+\begin{figure*}[p]\index{table of contents}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/vdqi-contents.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ei-contents.pdf}}
+\\\vspace{\baselineskip}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ve-contents.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/be-contents.pdf}}
+\end{figure*}
+
+%------------------------------------------------
+
+\section{Typefaces}\label{sec:typefaces1}\index{typefaces}
+\index{fonts|see{typefaces}}
+
+Tufte's books primarily use two typefaces: Bembo and Gill Sans. Bembo is used for the headings and body text, while Gill Sans is used for the title page and opening epigraphs in \BE.
+
+Since neither Bembo nor Gill Sans are available in default \LaTeX{} installations, the \TL document classes default to using Palatino and Helvetica, respectively. In addition, the Bera Mono typeface is used for \texttt{monospaced} type.
+
+The following font sizes are defined by the \TL classes:
+
+\begin{table}[h]\index{typefaces!sizes}
+\footnotesize%
+\begin{center}
+\begin{tabular}{lccl}
+\toprule
+\LaTeX{} size & Font size & Leading & Used for \\
+\midrule
+\verb+\tiny+ & 5 & 6 & sidenote numbers \\
+\verb+\scriptsize+ & 7 & 8 & \na \\
+\verb+\footnotesize+ & 8 & 10 & sidenotes, captions \\
+\verb+\small+ & 9 & 12 & quote, quotation, and verse environments \\
+\verb+\normalsize+ & 10 & 14 & body text \\
+\verb+\large+ & 11 & 15 & \textsc{b}-heads \\
+\verb+\Large+ & 12 & 16 & \textsc{a}-heads, \textsc{toc} entries, author, date \\
+\verb+\LARGE+ & 14 & 18 & handout title \\
+\verb+\huge+ & 20 & 30 & chapter heads \\
+\verb+\Huge+ & 24 & 36 & part titles \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{A list of \LaTeX{} font sizes as defined by the \TL document classes.}
+\label{tab:font-sizes}
+\end{table}
+
+%------------------------------------------------
+
+\section{Headings}\label{sec:headings1}\index{headings}
+
+Tufte's books include the following heading levels: parts, chapters,\sidenote{Parts and chapters are defined for the \texttt{tufte-book} class only.} sections, subsections, and paragraphs. Not defined by default are: sub-subsections and subparagraphs.
+
+\begin{table}[h]
+\begin{center}
+\footnotesize
+\begin{tabular}{lcr}
+\toprule
+Heading & Style & Size \\
+\midrule
+Part & roman & \measure{24}{36}{40} \\
+Chapter & italic & \measure{20}{30}{40} \\
+Section & italic & \measure{12}{16}{26} \\
+Subsection & italic & \measure{11}{15}{26} \\
+Paragraph & italic & 10/14 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Heading styles used in \BE.}
+\label{tab:heading-styles}
+\end{table}
+
+\paragraph{Paragraph} Paragraph headings (as shown here) are introduced by italicized text and separated from the main paragraph by a bit of space.
+
+%------------------------------------------------
+
+\section{Environments}
+
+The following characteristics define the various environments:
+
+\begin{table}[h]
+\begin{center}
+\footnotesize
+\begin{tabular}{lcl}
+\toprule
+Environment & Font size & Notes \\
+\midrule
+Body text & \measure{10}{14}{26} & \\
+Block quote & \measure{9}{12}{24} & Block indent (left and right) by \unit[1]{pc} \\
+Sidenotes & \measure{8}{10}{12} & Sidenote number is set inline, followed by word space \\
+Captions & \measure{8}{10}{12} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Environment styles used in \BE.}
+\label{tab:environment-styles}
+\end{table}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter[On the Use of the tufte-book Document Class]{On the Use of the \texttt{tufte-book} Document Class}
+\label{ch:tufte-book}
+
+The \TL document classes define a style similar to the style Edward Tufte uses in his books and handouts. Tufte's style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. This document aims to be at once a demonstration of the features of the \TL document classes and a style guide to their use.
+
+%------------------------------------------------
+
+\section{Page Layout}\label{sec:page-layout}
+\subsection{Headings}\label{sec:headings}\index{headings}
+This style provides \textsc{a}- and \textsc{b}-heads (that is, \Verb|\section| and \Verb|\subsection|), demonstrated above.
+
+If you need more than two levels of section headings, you'll have to define them yourself at the moment; there are no pre-defined styles for anything below a \Verb|\subsection|. As Bringhurst points out in \textit{The Elements of Typographic Style},\cite{Bringhurst2005} you should ``use as many levels of headings as you need: no more, and no fewer.''
+
+The \TL classes will emit an error if you try to use \linebreak\Verb|\subsubsection| and smaller headings.
+
+\newthought{In his later books},\cite{Tufte2006} Tufte starts each section with a bit of vertical space, a non-indented paragraph, and sets the first few words of the sentence in \textsc{small caps}. To accomplish this using this style, use the \doccmddef{newthought} command:
+\begin{docspec}
+\doccmd{newthought}\{In his later books\}, Tufte starts\ldots
+\end{docspec}
+
+%------------------------------------------------
+
+\section{Sidenotes}\label{sec:sidenotes}
+One of the most prominent and distinctive features of this style is the extensive use of sidenotes. There is a wide margin to provide ample room for sidenotes and small figures. Any \doccmd{footnote}s will automatically be converted to sidenotes.\footnote{This is a sidenote that was entered using the \texttt{\textbackslash footnote} command.} If you'd like to place ancillary information in the margin without the sidenote mark (the superscript number), you can use the \doccmd{marginnote} command.\marginnote{This is a margin note. Notice that there isn't a number preceding the note, and there is no number in the main text where this note was written.}
+
+The specification of the \doccmddef{sidenote} command is:
+\begin{docspec}
+\doccmd{sidenote}[\docopt{number}][\docopt{offset}]\{\docarg{Sidenote text.}\}
+\end{docspec}
+
+Both the \docopt{number} and \docopt{offset} arguments are optional. If you provide a \docopt{number} argument, then that number will be used as the sidenote number. It will change of the number of the current sidenote only and will not affect the numbering sequence of subsequent sidenotes.
+
+Sometimes a sidenote may run over the top of other text or graphics in the margin space. If this happens, you can adjust the vertical position of the sidenote by providing a dimension in the \docopt{offset} argument. Some examples of valid dimensions are:
+\begin{docspec}
+\ttfamily 1.0in \qquad 2.54cm \qquad 254mm \qquad 6\Verb|\baselineskip|
+\end{docspec}
+If the dimension is positive it will push the sidenote down the page; if the dimension is negative, it will move the sidenote up the page.
+
+While both the \docopt{number} and \docopt{offset} arguments are optional, they must be provided in order. To adjust the vertical position of the sidenote while leaving the sidenote number alone, use the following syntax:
+\begin{docspec}
+\doccmd{sidenote}[][\docopt{offset}]\{\docarg{Sidenote text.}\}
+\end{docspec}
+The empty brackets tell the \Verb|\sidenote| command to use the default sidenote number.
+
+If you \emph{only} want to change the sidenote number, however, you may completely omit the \docopt{offset} argument:
+\begin{docspec}
+\doccmd{sidenote}[\docopt{number}]\{\docarg{Sidenote text.}\}
+\end{docspec}
+
+The \doccmddef{marginnote} command has a similar \docarg{offset} argument:
+\begin{docspec}
+\doccmd{marginnote}[\docopt{offset}]\{\docarg{Margin note text.}\}
+\end{docspec}
+
+%------------------------------------------------
+
+\section{References}
+References are placed alongside their citations as sidenotes, as well. This can be accomplished using the normal \doccmddef{cite} command.\sidenote{The first paragraph of this document includes a citation.}
+
+The complete list of references may also be printed automatically by using the \doccmddef{bibliography} command. (See the end of this document for an example.) If you do not want to print a bibliography at the end of your document, use the \doccmddef{nobibliography} command in its place. 
+
+To enter multiple citations at one location,\cite[-3\baselineskip]{Tufte2006,Tufte1990} you can provide a list of keys separated by commas and the same optional vertical offset argument: \Verb|\cite{Tufte2006,Tufte1990}|. 
+\begin{docspec}
+\doccmd{cite}[\docopt{offset}]\{\docarg{bibkey1,bibkey2,\ldots}\}
+\end{docspec}
+
+%------------------------------------------------
+
+\section{Figures and Tables}\label{sec:figures-and-tables}
+Images and graphics play an integral role in Tufte's work. In addition to the standard \docenvdef{figure} and \docenvdef{tabular} environments, this style provides special figure and table environments for full-width floats.
+
+Full page--width figures and tables may be placed in \docenvdef{figure*} or \docenvdef{table*} environments. To place figures or tables in the margin, use the \docenvdef{marginfigure} or \docenvdef{margintable} environments as follows (see figure~\ref{fig:marginfig}):
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{helix}
+\caption{This is a margin figure. The helix is defined by $x = \cos(2\pi z)$, $y = \sin(2\pi z)$, and $z = [0, 2.7]$. The figure was drawn using Asymptote (\url{http://asymptote.sf.net/}).}
+\label{fig:marginfig}
+\end{marginfigure}
+
+\begin{docspec}
+\textbackslash begin\{marginfigure\}\\
+\qquad\textbackslash includegraphics\{helix\}\\
+\qquad\textbackslash caption\{This is a margin figure.\}\\
+\qquad\textbackslash label\{fig:marginfig\}\\
+\textbackslash end\{marginfigure\}\\
+\end{docspec}
+
+The \docenv{marginfigure} and \docenv{margintable} environments accept an optional parameter \docopt{offset} that adjusts the vertical position of the figure or table. See the ``\nameref{sec:sidenotes}'' section above for examples. The specifications are:
+\begin{docspec}
+\textbackslash{begin\{marginfigure\}[\docopt{offset}]}\\
+\qquad\ldots\\
+\textbackslash{end\{marginfigure\}}\\
+\mbox{}\\
+\textbackslash{begin\{margintable\}[\docopt{offset}]}\\
+\qquad\ldots\\
+\textbackslash{end\{margintable\}}\\
+\end{docspec}
+
+Figure~\ref{fig:fullfig} is an example of the \docenv{figure*} environment and figure~\ref{fig:textfig} is an example of the normal \docenv{figure} environment.
+
+\begin{figure*}[h]
+\includegraphics[width=\linewidth]{sine.pdf}
+\caption{This graph shows $y = \sin x$ from about $x = [-10, 10]$.
+\emph{Notice that this figure takes up the full page width.}}
+\label{fig:fullfig}
+\end{figure*}
+
+\begin{figure}
+\includegraphics{hilbertcurves.pdf}
+\caption[Hilbert curves of various degrees $n$.][6pt]{Hilbert curves of various degrees $n$. \emph{Notice that this figure only takes up the main textblock width.}}
+\label{fig:textfig}
+\end{figure}
+
+As with sidenotes and marginnotes, a caption may sometimes require vertical adjustment. The \doccmddef{caption} command now takes a second optional argument that enables you to do this by providing a dimension \docopt{offset}. You may specify the caption in any one of the following forms:
+\begin{docspec}
+\doccmd{caption}\{\docarg{long caption}\}\\
+\doccmd{caption}[\docarg{short caption}]\{\docarg{long caption}\}\\
+\doccmd{caption}[][\docopt{offset}]\{\docarg{long caption}\}\\
+\doccmd{caption}[\docarg{short caption}][\docopt{offset}]%
+\{\docarg{long caption}\}
+\end{docspec}
+A positive \docopt{offset} will push the caption down the page. The short caption, if provided, is what appears in the list of figures/tables, otherwise the ``long'' caption appears there. Note that although the arguments \docopt{short caption} and \docopt{offset} are both optional, they must be provided in order. Thus, to specify an \docopt{offset} without specifying a \docopt{short caption}, you must include the first set of empty brackets \Verb|[]|, which tell \doccmd{caption} to use the default ``long'' caption. As an example, the caption to figure~\ref{fig:textfig} above was given in the form
+\begin{docspec}
+\doccmd{caption}[Hilbert curves...][6pt]\{Hilbert curves...\}
+\end{docspec}
+
+Table~\ref{tab:normaltab} shows table created with the \docpkg{booktabs} package. Notice the lack of vertical rules---they serve only to clutter the table's data.
+
+\begin{table}[ht]
+\centering
+\fontfamily{ppl}\selectfont
+\begin{tabular}{ll}
+\toprule
+Margin & Length \\
+\midrule
+Paper width & \unit[8\nicefrac{1}{2}]{inches} \\
+Paper height & \unit[11]{inches} \\
+Textblock width & \unit[6\nicefrac{1}{2}]{inches} \\
+Textblock/sidenote gutter & \unit[\nicefrac{3}{8}]{inches} \\
+Sidenote width & \unit[2]{inches} \\
+\bottomrule
+\end{tabular}
+\caption{Here are the dimensions of the various margins used in the Tufte-handout class.}
+\label{tab:normaltab}
+\end{table}
+
+\newthought{Occasionally} \LaTeX{} will generate an error message:\label{err:too-many-floats}
+\begin{docspec}
+Error: Too many unprocessed floats
+\end{docspec}
+\LaTeX{} tries to place floats in the best position on the page. Until it's finished composing the page, however, it won't know where those positions are. If you have a lot of floats on a page (including sidenotes, margin notes, figures, tables, etc.), \LaTeX{} may run out of ``slots'' to keep track of them and will generate the above error.
+
+\LaTeX{} initially allocates 18 slots for storing floats. To work around this limitation, the \TL document classes provide a \doccmddef{morefloats} command that will reserve more slots.
+
+The first time \doccmd{morefloats} is called, it allocates an additional 34 slots. The second time \doccmd{morefloats} is called, it allocates another 26 slots.
+
+The \doccmd{morefloats} command may only be used two times. Calling it a third time will generate an error message. (This is because we can't safely allocate many more floats or \LaTeX{} will run out of memory.)
+
+If, after using the \doccmd{morefloats} command twice, you continue to get the \texttt{Too many unprocessed floats} error, there are a couple things you can do.
+
+The \doccmddef{FloatBarrier} command will immediately process all the floats before typesetting more material. Since \doccmd{FloatBarrier} will start a new paragraph, you should place this command at the beginning or end of a paragraph.
+
+The \doccmddef{clearpage} command will also process the floats before continuing, but instead of starting a new paragraph, it will start a new page.
+
+You can also try moving your floats around a bit: move a figure or table to the next page or reduce the number of sidenotes. (Each sidenote actually uses \emph{two} slots.)
+
+After the floats have placed, \LaTeX{} will mark those slots as unused so they are available for the next page to be composed.
+
+%------------------------------------------------
+
+\section{Captions}
+You may notice that the captions are sometimes misaligned. Due to the way \LaTeX's float mechanism works, we can't know for sure where it decided to put a float. Therefore, the \TL document classes provide commands to override the caption position.
+
+\paragraph{Vertical alignment} To override the vertical alignment, use the \doccmd{setfloatalignment} command inside the float environment. For example:
+
+\begin{fullwidth}
+\begin{docspec}
+\textbackslash begin\{figure\}[btp]\\
+\qquad \textbackslash includegraphics\{sinewave\}\\
+\qquad \textbackslash caption\{This is an example of a sine wave.\}\\
+\qquad \textbackslash label\{fig:sinewave\}\\
+\qquad \hlred{\textbackslash setfloatalignment\{b\}\% forces caption to be bottom-aligned}\\
+\textbackslash end\{figure\}
+\end{docspec}
+\end{fullwidth}
+
+\noindent The syntax of the \doccmddef{setfloatalignment} command is:
+
+\begin{docspec}
+\doccmd{setfloatalignment}\{\docopt{pos}\}
+\end{docspec}
+
+\noindent where \docopt{pos} can be either \texttt{b} for bottom-aligned captions, or \texttt{t} for top-aligned captions.
+
+\paragraph{Horizontal alignment}\label{par:overriding-horizontal}
+To override the horizontal alignment, use either the \doccmd{forceversofloat} or the \doccmd{forcerectofloat} command inside of the float environment. For example:
+
+\begin{fullwidth}
+\begin{docspec}
+\textbackslash begin\{figure\}[btp]\\
+\qquad \textbackslash includegraphics\{sinewave\}\\
+\qquad \textbackslash caption\{This is an example of a sine wave.\}\\
+\qquad \textbackslash label\{fig:sinewave\}\\
+\qquad \hlred{\textbackslash forceversofloat\% forces caption to be set to the left of the float}\\
+\textbackslash end\{figure\}
+\end{docspec}
+\end{fullwidth}
+
+The \doccmddef{forceversofloat} command causes the algorithm to assume the float has been placed on a verso page---that is, a page on the left side of a two-page spread. Conversely, the \doccmddef{forcerectofloat} command causes the algorithm to assume the float has been placed on a recto page---that is, a page on the right side of a two-page spread.
+
+%------------------------------------------------
+
+\section{Full-width text blocks}
+
+In addition to the new float types, there is a \docenvdef{fullwidth} environment that stretches across the main text block and the sidenotes area.
+
+\begin{Verbatim}
+\begin{fullwidth}
+Lorem ipsum dolor sit amet...
+\end{fullwidth}
+\end{Verbatim}
+
+\begin{fullwidth}
+\small\itshape\lipsum[1]
+\end{fullwidth}
+
+%------------------------------------------------
+
+\section{Typography}\label{sec:typography}
+
+\subsection{Typefaces}\label{sec:typefaces}\index{typefaces}
+If the Palatino, \textsf{Helvetica}, and \texttt{Bera Mono} typefaces are installed, this style will use them automatically. Otherwise, we'll fall back on the Computer Modern typefaces.
+
+\subsection{Letterspacing}\label{sec:letterspacing}
+This document class includes two new commands and some improvements on existing commands for letterspacing.
+
+When setting strings of \allcaps{ALL CAPS} or \smallcaps{small caps}, the letter\-spacing---that is, the spacing between the letters---should be increased slightly.\cite{Bringhurst2005} The \doccmddef{allcaps} command has proper letterspacing for strings of \allcaps{FULL CAPITAL LETTERS}, and the \doccmddef{smallcaps} command has letterspacing for \smallcaps{small capital letters}. These commands will also automatically convert the case of the text to upper- or lowercase, respectively.
+
+The \doccmddef{textsc} command has also been redefined to include letterspacing. The case of the \doccmd{textsc} argument is left as is, however. This allows one to use both uppercase and lowercase letters: \textsc{The Initial Letters Of The Words In This Sentence Are Capitalized.}
+
+%------------------------------------------------
+
+\section{Document Class Options}\label{sec:options}
+
+\index{class options|(}
+The \doccls{tufte-book} class is based on the \LaTeX\ \doccls{book} document class. Therefore, you can pass any of the typical book options. There are a few options that are specific to the \doccls{tufte-book} document class, however.
+
+The \docclsoptdef{a4paper} option will set the paper size to \smallcaps{A4} instead of the default \smallcaps{US} letter size.
+
+The \docclsoptdef{sfsidenotes} option will set the sidenotes and title block in a \textsf{sans serif} typeface instead of the default roman.
+
+The \docclsoptdef{twoside} option will modify the running heads so that the page number is printed on the outside edge (as opposed to always printing the page number on the right-side edge in \docclsoptdef{oneside} mode). 
+
+The \docclsoptdef{symmetric} option typesets the sidenotes on the outside edge of the page. This is how books are traditionally printed, but is contrary to Tufte's book design which sets the sidenotes on the right side of the page. This option implicitly sets the \docclsopt{twoside} option.
+
+The \docclsoptdef{justified} option sets all the text fully justified (flush left and right). The default is to set the text ragged right. The body text of Tufte's books are set ragged right. This prevents needless hyphenation and makes it easier to read the text in the slightly narrower column.
+
+The \docclsoptdef{bidi} option loads the \docpkg{bidi} package which is used with \tXeLaTeX\ to typeset bi-directional text. Since the \docpkg{bidi} package needs to be loaded before the sidenotes and cite commands are defined, it can't be loaded in the document preamble.
+
+The \docclsoptdef{debug} option causes the \TL classes to output debug information to the log file which is useful in troubleshooting bugs. It will also cause the graphics to be replaced by outlines.
+
+The \docclsoptdef{nofonts} option prevents the \TL classes from automatically loading the Palatino and Helvetica typefaces. You should use this option if you wish to load your own fonts. If you're using \tXeLaTeX, this option is implied (\ie, the Palatino and Helvetica fonts aren't loaded if you use \tXeLaTeX). 
+
+The \docclsoptdef{nols} option inhibits the letterspacing code. The \TL\ classes try to load the appropriate letterspacing package (either pdf\TeX's \docpkg{letterspace} package or the \docpkg{soul} package). If you're using \tXeLaTeX\ with \docpkg{fontenc}, however, you should configure your own letterspacing. 
+
+The \docclsoptdef{notitlepage} option causes \doccmd{maketitle} to generate a title block instead of a title page. The \doccls{book} class defaults to a title page and the \doccls{handout} class defaults to the title block. There is an analogous \docclsoptdef{titlepage} option that forces \doccmd{maketitle} to generate a full title page instead of the title block.
+
+The \docclsoptdef{notoc} option suppresses \TL's custom table of contents (\textsc{toc}) design. The current \textsc{toc} design only shows unnumbered chapter titles; it doesn't show sections or subsections. The \docclsopt{notoc} option will revert to \LaTeX's \textsc{toc} design.
+
+The \docclsoptdef{nohyper} option prevents the \docpkg{hyperref} package from being loaded. The default is to load the \docpkg{hyperref} package and use the \doccmd{title} and \doccmd{author} contents as metadata for the generated \textsc{pdf}.
+
+\index{class options|)}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapter[Customizing Tufte-LaTeX]{Customizing \TL}
+\label{ch:customizing}
+
+The \TL document classes are designed to closely emulate Tufte's book design by default. However, each document is different and you may encounter situations where the default settings are insufficient. This chapter explores many of the ways you can adjust the \TL document classes to better fit your needs.
+
+%------------------------------------------------
+
+\section{File Hooks}
+\label{sec:filehooks}
+
+\index{file hooks|(}
+If you create many documents using the \TL classes, it's easier to store your customizations in a separate file instead of copying them into the preamble of each document. The \TL classes provide three file hooks: \docfilehook{tufte-common-local.tex}{common}, \docfilehook{tufte-book-local.tex}{book}, and \docfilehook{tufte-handout-local.tex}{handout}.\sloppy
+
+\begin{description}
+\item[\docfilehook{tufte-common-local.tex}{common}]
+If this file exists, it will be loaded by all of the \TL document classes just prior to any document-class-specific code. If your customizations or code should be included in both the book and handout classes, use this file hook.
+\item[\docfilehook{tufte-book-local.tex}{book}] 
+If this file exists, it will be loaded after all of the common and book-specific code has been read. If your customizations apply only to the book class, use this file hook.
+\item[\docfilehook{tufte-common-handout.tex}{handout}] 
+If this file exists, it will be loaded after all of the common and handout-specific code has been read. If your customizations apply only to the handout class, use this file hook.
+\end{description}
+
+\index{file hooks|)}
+
+%------------------------------------------------
+
+\section{Numbered Section Headings}
+\label{sec:numbered-sections}
+\index{headings!numbered}
+
+While Tufte dispenses with numbered headings in his books, if you require them, they can be enabled by changing the value of the \doccounter{secnumdepth} counter. From the table below, select the heading level at which numbering should stop and set the \doccounter{secnumdepth} counter to that value. For example, if you want parts and chapters numbered, but don't want numbering for sections or subsections, use the command:
+\begin{docspec}
+\doccmd{setcounter}\{secnumdepth\}\{0\}
+\end{docspec}
+
+The default \doccounter{secnumdepth} for the \TL document classes is $-1$.
+
+\begin{table}
+\footnotesize
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Heading level & Value \\
+\midrule
+Part (in \doccls{tufte-book}) & $-1$ \\
+Part (in \doccls{tufte-handout}) & $0$ \\
+Chapter (only in \doccls{tufte-book}) & $0$ \\
+Section & $1$ \\
+Subsection & $2$ \\
+Subsubsection & $3$ \\
+Paragraph & $4$ \\
+Subparagraph & $5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Heading levels used with the \texttt{secnumdepth} counter.}
+\end{table}
+
+%------------------------------------------------
+
+\section{Changing the Paper Size}
+\label{sec:paper-size}
+
+The \TL classes currently only provide three paper sizes: \textsc{a4}, \textsc{b5}, and \textsc{us} letter. To specify a different paper size (and/or margins), use the \doccmd[geometry]{geometrysetup} command in the preamble of your document (or one of the file hooks). The full documentation of the \doccmd{geometrysetup} command may be found in the \docpkg{geometry} package documentation.\cite{pkg-geometry}
+
+%------------------------------------------------
+
+\section{Customizing Marginal Material}
+\label{sec:marginal-material}
+
+Marginal material includes sidenotes, citations, margin notes, and captions. Normally, the justification of the marginal material follows the justification of the body text. If you specify the \docclsopt{justified} document class option, all of the margin material will be fully justified as well. If you don't specify the \docclsopt{justified} option, then the marginal material will be set ragged right.
+
+You can set the justification of the marginal material separately from the body text using the following document class options: \docclsopt{sidenote}, \docclsopt{marginnote}, \docclsopt{caption}, \docclsopt{citation}, and \docclsopt{marginals}. Each option refers to its obviously corresponding marginal material type. The \docclsopt{marginals} option simultaneously sets the justification on all four marginal material types.
+
+Each of the document class options takes one of five justification types:
+\begin{description}
+\item[\docclsopt{justified}] Fully justifies the text (sets it flush left and right).
+\item[\docclsopt{raggedleft}] Sets the text ragged left, regardless of which page it falls on.
+\item[\docclsopt{raggedright}] Sets the text ragged right, regardless of which page it falls on.
+\item[\doccls{raggedouter}] Sets the text ragged left if it falls on the left-hand (verso) page of the spread and otherwise sets it ragged right. This is useful in conjunction with the \docclsopt{symmetric} document class option.
+\item[\docclsopt{auto}] If the \docclsopt{justified} document class option was specified, then set the text fully justified; otherwise the text is set ragged right. This is the default justification option if one is not explicitly specified.
+\end{description}
+
+\noindent For example, 
+\begin{docspec}
+\doccmdnoindex{documentclass}[symmetric,justified,marginals=raggedouter]\{tufte-book\}
+\end{docspec}
+will set the body text of the document to be fully justified and all of the margin material (sidenotes, margin notes, captions, and citations) to be flush against the body text with ragged outer edges.
+
+\newthought{The font and style} of the marginal material may also be modified using the following commands:
+
+\begin{docspec}
+\doccmd{setsidenotefont}\{\docopt{font commands}\}\\
+\doccmd{setcaptionfont}\{\docopt{font commands}\}\\
+\doccmd{setmarginnotefont}\{\docopt{font commands}\}\\
+\doccmd{setcitationfont}\{\docopt{font commands}\}
+\end{docspec}
+
+The \doccmddef{setsidenotefont} sets the font and style for sidenotes, the \doccmddef{setcaptionfont} for captions, the \doccmddef{setmarginnotefont} for margin notes, and the \doccmddef{setcitationfont} for citations. The \docopt{font commands} can contain font size changes (e.g., \doccmdnoindex{footnotesize}, \doccmdnoindex{Huge}, etc.), font style changes (e.g., \doccmdnoindex{sffamily}, \doccmdnoindex{ttfamily}, \doccmdnoindex{itshape}, etc.), color changes (e.g., \doccmdnoindex{color}\texttt{\{blue\}}), and many other adjustments.
+
+If, for example, you wanted the captions to be set in italic sans serif, you could use:
+\begin{docspec}
+\doccmd{setcaptionfont}\{\doccmdnoindex{itshape}\doccmdnoindex{sffamily}\}
+\end{docspec}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapter{Compatibility Issues}
+\label{ch:compatibility}
+
+When switching an existing document from one document class to a \TL document class, a few changes to the document may have to be made.
+
+%------------------------------------------------
+
+\section{Converting from \doccls{article} to \doccls{tufte-handout}}
+
+The following \doccls{article} class options are unsupported: \docclsopt{10pt}, \docclsopt{11pt}, \docclsopt{12pt}, \docclsopt{a5paper}, \docclsopt{b5paper}, \docclsopt{executivepaper}, \docclsopt{legalpaper}, \docclsopt{landscape}, \docclsopt{onecolumn}, and \doccls{twocolumn}.
+
+The following headings are not supported: \doccmd{subsubsection} and \doccmd{subparagraph}.
+
+%------------------------------------------------
+
+\section{Converting from \doccls{book} to \doccls{tufte-book}}
+
+The following \doccls{report} class options are unsupported: \docclsopt{10pt}, \docclsopt{11pt}, \docclsopt{12pt}, \docclsopt{a5paper}, \docclsopt{b5paper}, \docclsopt{executivepaper}, \docclsopt{legalpaper}, \docclsopt{landscape}, \docclsopt{onecolumn}, and \doccls{twocolumn}.
+
+The following headings are not supported: \doccmd{subsubsection} and \doccmd{subparagraph}.
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 5
+%----------------------------------------------------------------------------------------
+
+\chapter{Troubleshooting and Support}
+\label{ch:troubleshooting}
+
+%------------------------------------------------
+
+\section{\TL Website}\label{sec:website}
+The website for the \TL packages is located at \url{http://code.google.com/p/tufte-latex/}. On our website, you'll find links to our \smallcaps{svn} repository, mailing lists, bug tracker, and documentation.
+
+%------------------------------------------------
+
+\section{\TL Mailing Lists}\label{sec:mailing-lists}
+There are two mailing lists for the \TL project:
+
+\paragraph{Discussion list}
+The \texttt{tufte-latex} discussion list is for asking questions, getting assistance with problems, and help with troubleshooting. Release announcements are also posted to this list. You can subscribe to the \texttt{tufte-latex} discussion list at \url{http://groups.google.com/group/tufte-latex}.
+
+\paragraph{Commits list}
+The \texttt{tufte-latex-commits} list is a read-only mailing list. A message is sent to the list any time the \TL code has been updated. If you'd like to keep up with the latest code developments, you may subscribe to this list. You can subscribe to the \texttt{tufte-latex-commits} mailing list at \url{http://groups.google.com/group/tufte-latex-commits}.
+
+%------------------------------------------------
+
+\section{Getting Help}\label{sec:getting-help}
+If you've encountered a problem with one of the \TL document classes, have a question, or would like to report a bug, please send an email to our mailing list or visit our website.
+
+To help us troubleshoot the problem more quickly, please try to compile your document using the \docclsopt{debug} class option and send the generated \texttt{.log} file to the mailing list with a brief description of the problem.
+
+%------------------------------------------------
+
+\section{Errors, Warnings, and Informational Messages}\label{sec:tl-messages}
+The following is a list of all of the errors, warnings, and other messages generated by the \TL classes and a brief description of their meanings.
+\index{error messages}\index{warning messages}\index{debug messages}
+
+\docmsg{Error: \doccmd{subparagraph} is undefined by this class.}{%
+The \doccmd{subparagraph} command is not defined in the \TL document classes. If you'd like to use the \doccmd{subparagraph} command, you'll need to redefine it yourself. See the ``Headings'' section on page~\pageref{sec:headings} for a description of the heading styles availaboe in the \TL document classes.}
+
+\docmsg{Error: \doccmd{subsubsection} is undefined by this class.}{%
+The \doccmd{subsubsection} command is not defined in the \TL document classes. If you'd like to use the \doccmd{subsubsection} command, you'll need to redefine it yourself. See the ``Headings'' section on page~\pageref{sec:headings} for a description of the heading styles availaboe in the \TL document classes.}
+
+\docmsg{Error: You may only call \doccmd{morefloats} twice. See the\par\noindent\ \ \ \ \ \ \ \ Tufte-LaTeX documentation for other workarounds.}{%
+\LaTeX{} allocates 18 slots for storing floats. The first time \doccmd{morefloats} is called, it allocates an additional 34 slots. The second time \doccmd{morefloats} is called, it allocates another 26 slots.
+
+The \doccmd{morefloats} command may only be called two times. Calling it a third time will generate this error message. See page~\pageref{err:too-many-floats} for more information.}
+
+\docmsg{Warning: Option `\docopt{class option}' is not supported -{}- ignoring option.}{%
+This warning appears when you've tried to use \docopt{class option} with a \TL document class, but \docopt{class option} isn't supported by the \TL document class. In this situation, \docopt{class option} is ignored.}
+
+\docmsg{Info: The `\docclsopt{symmetric}' option implies `\docclsopt{twoside}'}{%
+You specified the \docclsopt{symmetric} document class option. This option automatically forces the \docclsopt{twoside} option as well. See page~\pageref{clsopt:symmetric} for more information on the \docclsopt{symmetric} class option.}
+
+%------------------------------------------------
+
+\section{Package Dependencies}\label{sec:dependencies}
+The following is a list of packages that the \TL document classes rely upon. Packages marked with an asterisk are optional.
+\begin{multicols}{2}
+\begin{itemize}
+\item xifthen
+\item ifpdf*
+\item ifxetex*
+\item hyperref
+\item geometry
+\item ragged2e
+\item chngpage \emph{or} changepage
+\item paralist
+\item textcase
+\item soul*
+\item letterspace*
+\item setspace
+\item natbib \emph{and} bibentry
+\item optparams
+\item placeins
+\item mathpazo*
+\item helvet*
+\item fontenc
+\item beramono*
+\item fancyhdr
+\item xcolor
+\item textcomp
+\item titlesec
+\item titletoc
+\end{itemize}
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+
+\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliography{bibliography} % Use the bibliography.bib file for the bibliography
+\bibliographystyle{plainnat} % Use the plainnat style of referencing
+
+%----------------------------------------------------------------------------------------
+
+\printindex % Print the index at the very end of the document
+
+\end{document}
